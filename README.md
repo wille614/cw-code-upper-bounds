@@ -10,6 +10,10 @@ A(*n,d,w*) is the largest size of a binary code of length *n*, minimum Hamming d
 
 The previous upper bounds appear in the distance-six section of [Brouwer’s table](https://aeb.win.tue.nl/codes/Andw.html).
 
+## Paper
+
+The [paper (PDF)](paper/paper.pdf) gives all constructions and proofs; the [LaTeX source](paper/paper.tex) is also available.
+
 ## Certificates and models
 
 Each augmented four-point SDP uses anticode vacancy, occupancy and cardinality inequalities. The cardinality premise is obtained by flooring an exact Polak four-point bound. The three baseline certificates establish the premises 312, 463 and 673, respectively. The package contains the baseline and augmented SDPs and their rational dual certificates. The derivation of every constraint family, and the proof that every code gives a feasible point of the augmented programs, is in [proofs/PROOFS.md](proofs/PROOFS.md).
@@ -21,7 +25,7 @@ Each certificate records rational dual matrices, their LDLᵀ factors, residual 
 ## Reproduce the bounds offline
 
 1. Start in the directory containing this README. Use CPython 3.11 or later with the standard library and assertions enabled.
-2. Place the 18 gzip assets in the directories indicated below. In an assembled copy they are already in place. Each filename is listed in its directory’s checksum list.
+2. Download the 18 gzip data assets from [Release v1.0.0](https://github.com/wille614/cw-code-upper-bounds/releases/tag/v1.0.0) and place them in the directories indicated below. The data and certificates are unchanged in v1.1.0. In an assembled copy they are already in place. Each filename is listed in its directory’s checksum list.
 
    | Directory | Files per point |
    | --- | --- |
