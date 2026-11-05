@@ -12,7 +12,7 @@ The previous upper bounds appear in the distance-six section of [Brouwer’s tab
 
 ## Paper
 
-The [paper (PDF)](paper/paper.pdf) gives all constructions and proofs; the [LaTeX source](paper/paper.tex) is also available.
+The [paper (PDF)](https://github.com/wille614/cw-code-upper-bounds/releases/download/v1.2.0/paper.pdf) gives all constructions and proofs; the [LaTeX source](https://github.com/wille614/cw-code-upper-bounds/blob/v1.2.0/paper/paper.tex) is also available.
 
 ## Certificates and models
 
@@ -25,7 +25,7 @@ Each certificate records rational dual matrices, their LDLᵀ factors, residual 
 ## Reproduce the bounds offline
 
 1. Start in the directory containing this README. Use CPython 3.11 or later with the standard library and assertions enabled.
-2. Download the 18 gzip data assets from [Release v1.0.0](https://github.com/wille614/cw-code-upper-bounds/releases/tag/v1.0.0) and place them in the directories indicated below. The data and certificates are unchanged in v1.1.0. In an assembled copy they are already in place. Each filename is listed in its directory’s checksum list.
+2. Download the 18 gzip data assets from [Release v1.0.0](https://github.com/wille614/cw-code-upper-bounds/releases/tag/v1.0.0) and place them in the directories indicated below. The data and certificates are unchanged in v1.2.0. In an assembled copy they are already in place. Each filename is listed in its directory’s checksum list.
 
    | Directory | Files per point |
    | --- | --- |

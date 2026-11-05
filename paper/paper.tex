@@ -54,11 +54,15 @@ exact certificate for Polak's four-point bound.
 Semidefinite programming bounds for codes include Schrijver's three-point
 bound based on the Terwilliger algebra \cite{Schrijver}, the quadruple-distance
 bound of Gijswijt, Mittelmann, and Schrijver \cite{GMS}, and Polak's four-point
-bounds for constant-weight codes \cite{Polak}. Strengthening an established
-bound by additional valid inequalities also has precedents: Agrell, Vardy,
-and Zeger \cite{AVZ} augmented linear programming inequalities for
-constant-weight codes, and Kim and Toan \cite{KimToan} added linear constraints
-to Schrijver's semidefinite program.
+bounds for constant-weight codes \cite{Polak}. The use of additional valid
+inequalities to strengthen coding bounds goes back to Best and Brouwer
+\cite{BestBrouwer}, who added an inequality to Delsarte's linear program to
+prove that the triply shortened binary Hamming code is optimal. Best, Brouwer,
+MacWilliams, Odlyzko, and Sloane \cite{BestEtAl} used the same method to prove
+that $A(13,6)=32$, establishing the optimality of the Nadler code. Later,
+Agrell, Vardy, and Zeger \cite{AVZ} augmented linear programming inequalities
+for constant-weight codes, and Kim and Toan \cite{KimToan} added linear
+constraints to Schrijver's semidefinite program.
 
 Here eight families of valid constraints strengthen Polak's bound at the
 three parameters above. The constructions use Boolean multipliers and
@@ -626,6 +630,7 @@ CC BY 4.0.
 \section*{Acknowledgements}
 
 The experiments and the writing were carried out with AI assistance.
+We thank A. E. Brouwer for pointing out the early history of this method.
 
 \appendix
 
@@ -705,6 +710,19 @@ A.~E. Brouwer,
 \emph{Bounds for binary constant weight codes}, online table,
 \url{https://aeb.win.tue.nl/codes/Andw.html}, accessed 5 November 2026.
 
+\bibitem{Polak}
+S.~C. Polak,
+Semidefinite programming bounds for constant-weight codes,
+\emph{IEEE Trans. Inform. Theory} \textbf{65} (2019), no.~1, 28--38.
+\href{https://doi.org/10.1109/TIT.2018.2854800}{doi:10.1109/TIT.2018.2854800}.
+\href{https://arxiv.org/abs/1703.05171}{arXiv:1703.05171}.
+
+\bibitem{Chang}
+J. Chang,
+A new upper bound for $A(19,6,8)$,
+arXiv:2611.00173 (2026).
+\url{https://arxiv.org/abs/2611.00173}.
+
 \bibitem{Schrijver}
 A. Schrijver,
 New code upper bounds from the Terwilliger algebra and semidefinite programming,
@@ -717,12 +735,17 @@ Semidefinite code bounds based on quadruple distances,
 \emph{IEEE Trans. Inform. Theory} \textbf{58} (2012), no.~5, 2697--2705.
 \href{https://doi.org/10.1109/TIT.2012.2184845}{doi:10.1109/TIT.2012.2184845}.
 
-\bibitem{Polak}
-S.~C. Polak,
-Semidefinite programming bounds for constant-weight codes,
-\emph{IEEE Trans. Inform. Theory} \textbf{65} (2019), no.~1, 28--38.
-\href{https://doi.org/10.1109/TIT.2018.2854800}{doi:10.1109/TIT.2018.2854800}.
-\href{https://arxiv.org/abs/1703.05171}{arXiv:1703.05171}.
+\bibitem{BestBrouwer}
+M.~R. Best and A.~E. Brouwer,
+The triply shortened binary Hamming code is optimal,
+\emph{Discrete Math.} \textbf{17} (1977), no.~3, 235--245.
+\href{https://doi.org/10.1016/0012-365X(77)90158-3}{doi:10.1016/0012-365X(77)90158-3}.
+
+\bibitem{BestEtAl}
+M.~R. Best, A.~E. Brouwer, F.~J. MacWilliams, A.~M. Odlyzko, and N.~J.~A. Sloane,
+Bounds for binary codes of length less than 25,
+\emph{IEEE Trans. Inform. Theory} \textbf{24} (1978), no.~1, 81--93.
+\href{https://doi.org/10.1109/TIT.1978.1055827}{doi:10.1109/TIT.1978.1055827}.
 
 \bibitem{AVZ}
 E. Agrell, A. Vardy, and K. Zeger,
@@ -767,12 +790,6 @@ R. Ahlswede and L.~H. Khachatrian,
 The complete intersection theorem for systems of finite sets,
 \emph{European J. Combin.} \textbf{18} (1997), no.~2, 125--136.
 \href{https://doi.org/10.1006/eujc.1995.0092}{doi:10.1006/eujc.1995.0092}.
-
-\bibitem{Chang}
-J. Chang,
-A new upper bound for $A(19,6,8)$,
-arXiv:2611.00173 (2026).
-\url{https://arxiv.org/abs/2611.00173}.
 
 \end{thebibliography}
 \end{document}
