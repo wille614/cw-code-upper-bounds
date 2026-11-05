@@ -1,0 +1,2 @@
+# No third-party packages are required. Uses only the Python standard library.
+# Reproduced with CPython 3.13.5.

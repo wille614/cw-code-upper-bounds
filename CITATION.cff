@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Please cite this certificate package when using the bounds or data."
+title: "Exact upper-bound certificates for binary constant-weight codes of lengths 18 and 19"
+type: software
+license: Apache-2.0
+authors:
+  - family-names: Chang
+    given-names: Jiang
+    orcid: "https://orcid.org/0009-0006-8310-632X"
+    affiliation: "College of Computer Science and Software Engineering, Hohai University, Nanjing, China"

@@ -1,0 +1,6 @@
+/replay/
+/certificates/*.gz
+data/*.gz
+__pycache__/
+*.pyc
+baselines/*.gz
