@@ -4,9 +4,10 @@ This package contains 47 proposed updates to
 [Brouwer's table](https://aeb.win.tue.nl/codes/Andw.html): two exact values,
 explicit lower-bound codes, exact upper-bound certificates, and stated
 consequences of published bounds. Start with [UPDATE.md](UPDATE.md),
-whose opening list is ready to copy into a table update. Its four groups
-follow the accompanying letter. The self-contained mathematical notes
-are in [notes/](notes/).
+whose opening list is ready to copy into a table update. The four groups
+are exact values; A(21,8,9); Two-dimensional tables "Bounds on A(n,d,w)";
+and Lists "Values of A(n,d,w)" for n >= 29. The self-contained
+mathematical notes are in [notes/](notes/).
 
 ## Verification
 

@@ -2,6 +2,11 @@
 
 Table values checked on 10 November 2026. In the copyable list, “upper” and “lower” specify the changed endpoint; “exact” replaces the whole interval. The four tables below give the complete current numerical cell.
 
+There are 47 entries: 2 exact values; 1 upper bound for A(21,8,9);
+13 upper bounds and 9 lower bounds in the Two-dimensional tables
+"Bounds on A(n,d,w)"; and 22 upper bounds in the Lists
+"Values of A(n,d,w)" for n >= 29.
+
 ```text
 A(64,10,6) (exact): 126-128 -> 128
 A(58,14,8) (exact): 57-58 -> 57
@@ -76,7 +81,7 @@ The per-entry seconds below are the measured checks inside the complete invocati
 |---|---|---|---|---|---|---|
 | A(21,8,9) | 280-294 | <= 287 | Full four-point bound A4; rational Gram dual | [notes/A21_8_9.md](notes/A21_8_9.md); [data/A21_8_9_full.json](data/A21_8_9_full.json); [data/A21_8_9_principal.json](data/A21_8_9_principal.json); [attachments/A21_8_9_certificate.json.gz](https://github.com/wille614/cw-code-upper-bounds/releases/download/v2.0.0/A21_8_9_certificate.json.gz) | `python verify.py 21 8 9` | 573.346 s; <= 13355847680 bytes |
 
-## Main tables
+## Two-dimensional tables "Bounds on A(n,d,w)"
 
 | Parameters | Current table cell | New endpoint/value | Method | Evidence | Command | Measured seconds; memory reference |
 |---|---|---|---|---|---|---|
@@ -103,7 +108,7 @@ The per-entry seconds below are the measured checks inside the complete invocati
 | A(30,10,10) | 322-1569 | >= 373 | Once-shortened ternary Golay code, unit-vector expansion and 130 added words | [notes/lower_bounds.md](notes/lower_bounds.md); [codes/a30.10.10.373](codes/a30.10.10.373); [data/A30_ternary.json](data/A30_ternary.json) | `python verify.py 30 10 10` | 0.039 s; <= 22855680 bytes |
 | A(32,12,11) | 187-573 | >= 215 | Dual ternary Golay code, unit-vector expansion, binary shortening and 53 added words | [notes/lower_bounds.md](notes/lower_bounds.md); [codes/a32.12.11.215](codes/a32.12.11.215); [data/A32_ternary.json](data/A32_ternary.json) | `python verify.py 32 12 11` | 0.009 s; <= 22855680 bytes |
 
-## Other tables
+## Lists "Values of A(n,d,w)" for n >= 29
 
 | Parameters | Current table cell | New endpoint/value | Method | Evidence | Command | Measured seconds; memory reference |
 |---|---|---|---|---|---|---|
