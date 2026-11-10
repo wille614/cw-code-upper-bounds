@@ -1,6 +1,6 @@
 cff-version: 1.2.0
-message: "Please cite this certificate package when using the bounds or data."
-title: "Exact upper-bound certificates for binary constant-weight codes of lengths 18 and 19"
+message: "Please cite this certificate and code package when using its results or data."
+title: "Exact certificates and explicit codes for binary constant-weight code table updates"
 type: software
 license: Apache-2.0
 authors:
@@ -8,13 +8,4 @@ authors:
     given-names: Jiang
     orcid: "https://orcid.org/0009-0006-8310-632X"
     affiliation: "College of Computer Science and Software Engineering, Hohai University, Nanjing, China"
-preferred-citation:
-  type: unpublished
-  title: "New upper bounds for A(18,6,7), A(19,6,7), and A(19,6,8)"
-  authors:
-    - family-names: Chang
-      given-names: Jiang
-      orcid: "https://orcid.org/0009-0006-8310-632X"
-      affiliation: "College of Computer Science and Software Engineering, Hohai University, Nanjing, China"
-  year: 2026
-  url: "https://github.com/wille614/cw-code-upper-bounds/releases/download/v1.2.0/paper.pdf"
+repository-code: "https://github.com/wille614/cw-code-upper-bounds"

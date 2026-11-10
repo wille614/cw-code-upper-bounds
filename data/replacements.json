@@ -1,0 +1,93 @@
+[
+  {
+    "n": 24,
+    "d": 6,
+    "w": 12,
+    "source_url": "https://aeb.win.tue.nl/codes/cwc/d6/a24.6.12.5617H",
+    "source_sha256": "a5b1ccdb8f49ad00eced524935ad69b85cac027d6fa0006ed974b8d9358ac652",
+    "source_words": 5617,
+    "kept": 5409,
+    "removed": 208,
+    "added": 216,
+    "final_words": 5625,
+    "coordinate_permutation": "identity"
+  },
+  {
+    "n": 25,
+    "d": 6,
+    "w": 11,
+    "source_url": "https://aeb.win.tue.nl/codes/cwc/d6/a25.6.11.8720H",
+    "source_sha256": "43f7b26428be6c9c457ee294e84c41a55d75c0b4453e1165a171aa838da5f798",
+    "source_words": 8720,
+    "kept": 8434,
+    "removed": 286,
+    "added": 299,
+    "final_words": 8733,
+    "coordinate_permutation": "identity"
+  },
+  {
+    "n": 25,
+    "d": 6,
+    "w": 12,
+    "source_url": "https://aeb.win.tue.nl/codes/cwc/d6/a25.6.12.9895H",
+    "source_sha256": "db3a9b1fc2c5e6adb45c80f1ab634d829b7af86a8794657b824e0fb6b599c20e",
+    "source_words": 9895,
+    "kept": 9677,
+    "removed": 218,
+    "added": 233,
+    "final_words": 9910,
+    "coordinate_permutation": "identity"
+  },
+  {
+    "n": 26,
+    "d": 6,
+    "w": 11,
+    "source_url": "https://aeb.win.tue.nl/codes/cwc/d6/a26.6.11.12222H",
+    "source_sha256": "d77e3f74dc6603d04094a6d221095e1849f5cc0d35e5e8ec8b6d00114ffdb520",
+    "source_words": 12222,
+    "kept": 12041,
+    "removed": 181,
+    "added": 184,
+    "final_words": 12225,
+    "coordinate_permutation": "identity"
+  },
+  {
+    "n": 26,
+    "d": 6,
+    "w": 13,
+    "source_url": "https://aeb.win.tue.nl/codes/cwc/d6/a26.6.13.16225H",
+    "source_sha256": "81917e1bdc43b0a42390586c5524be42b8175933e6fdc556574245fddaa5ffae",
+    "source_words": 16225,
+    "kept": 15464,
+    "removed": 761,
+    "added": 790,
+    "final_words": 16254,
+    "coordinate_permutation": "identity"
+  },
+  {
+    "n": 28,
+    "d": 8,
+    "w": 11,
+    "source_url": "https://aeb.win.tue.nl/codes/cwc/d8/a28.8.11.3791H",
+    "source_sha256": "e1b99c17b4d86e5e69d48352be981e856f3e0148790f70ce045e3d01c46bd378",
+    "source_words": 3791,
+    "kept": 3393,
+    "removed": 398,
+    "added": 439,
+    "final_words": 3832,
+    "coordinate_permutation": "identity"
+  },
+  {
+    "n": 28,
+    "d": 8,
+    "w": 14,
+    "source_url": "https://aeb.win.tue.nl/codes/cwc/d8/a28.8.14.6359H",
+    "source_sha256": "1e562b3401459948186c33df39bd65270e3dc89a1b385d49d218766e405b4c9d",
+    "source_words": 6359,
+    "kept": 6012,
+    "removed": 347,
+    "added": 380,
+    "final_words": 6392,
+    "coordinate_permutation": "identity"
+  }
+]

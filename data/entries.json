@@ -1,0 +1,1618 @@
+[
+  {
+    "n": 64,
+    "d": 10,
+    "w": 6,
+    "bound": 128,
+    "kind": "exact",
+    "group": "Exact values",
+    "old": "126-128",
+    "table": {
+      "n": 64,
+      "d": 10,
+      "w": 6,
+      "lower": 126,
+      "upper": 128,
+      "kind": "list",
+      "heading": "Values of A(n,10,6)",
+      "raw": "126-128",
+      "links": []
+    },
+    "method": "Two relative difference blocks and Johnson counting",
+    "note": "notes/A64_10_6.md",
+    "code": {
+      "n": 64,
+      "d": 10,
+      "w": 6,
+      "count": 128,
+      "file": "codes/a64.10.6.128",
+      "distance_distribution": {
+        "10": 4224,
+        "12": 3904
+      },
+      "previous_files": []
+    },
+    "evidence": [
+      "notes/A64_10_6.md",
+      "codes/a64.10.6.128"
+    ]
+  },
+  {
+    "n": 58,
+    "d": 14,
+    "w": 8,
+    "bound": 57,
+    "kind": "exact",
+    "group": "Exact values",
+    "old": "57-58",
+    "table": {
+      "n": 58,
+      "d": 14,
+      "w": 8,
+      "lower": 57,
+      "upper": 58,
+      "kind": "list",
+      "heading": "Values of A(n,14,8)",
+      "raw": "57-58",
+      "links": []
+    },
+    "method": "Symmetric-configuration nonexistence and PG(2,7)",
+    "note": "notes/A58_14_8.md",
+    "evidence": [
+      "notes/A58_14_8.md"
+    ]
+  },
+  {
+    "n": 21,
+    "d": 8,
+    "w": 9,
+    "bound": 287,
+    "kind": "sdp",
+    "group": "Requested entry",
+    "old": "294",
+    "table": {
+      "n": 21,
+      "d": 8,
+      "w": 9,
+      "lower": 280,
+      "upper": 294,
+      "kind": "main",
+      "heading": "Bounds on A(n,8,w)",
+      "raw": "280 s -294 Po",
+      "links": []
+    },
+    "method": "Full four-point bound A4; rational Gram dual",
+    "note": "notes/A21_8_9.md",
+    "large": true,
+    "evidence": [
+      "notes/A21_8_9.md",
+      "data/A21_8_9_full.json",
+      "data/A21_8_9_principal.json",
+      "attachments/A21_8_9_certificate.json.gz"
+    ]
+  },
+  {
+    "n": 18,
+    "d": 6,
+    "w": 6,
+    "bound": 183,
+    "kind": "sdp",
+    "group": "Main tables",
+    "old": "186",
+    "table": {
+      "n": 18,
+      "d": 6,
+      "w": 6,
+      "lower": 133,
+      "upper": 186,
+      "kind": "main",
+      "heading": "Bounds on A(n,6,w)",
+      "raw": "133 R -186",
+      "links": [
+        "cwc/d6/a18.6.6.133"
+      ]
+    },
+    "method": "A4 with local packing and valid counting inequalities",
+    "note": "notes/A18_6_6.md",
+    "large": true,
+    "evidence": [
+      "notes/A18_6_6.md",
+      "attachments/A18_6_6_certificate.json.gz",
+      "attachments/A18_6_6_model.json.gz"
+    ]
+  },
+  {
+    "n": 32,
+    "d": 16,
+    "w": 13,
+    "bound": 26,
+    "kind": "projection",
+    "group": "Main tables",
+    "old": "27",
+    "table": {
+      "n": 32,
+      "d": 16,
+      "w": 13,
+      "lower": 25,
+      "upper": 27,
+      "kind": "main",
+      "heading": "Bounds on A(n,16,w)",
+      "raw": "25 R -27",
+      "links": [
+        "cwc/d16/a32.16.13.25"
+      ]
+    },
+    "method": "102 defect graphs; two sets of integer separation certificates",
+    "note": "notes/A32_16_13.md",
+    "evidence": [
+      "notes/A32_16_13.md",
+      "certificates/A32_16_13_first.json",
+      "certificates/A32_16_13_second.json"
+    ]
+  },
+  {
+    "n": 27,
+    "d": 8,
+    "w": 7,
+    "bound": 499,
+    "kind": "packing",
+    "group": "Main tables",
+    "old": "500",
+    "table": {
+      "n": 27,
+      "d": 8,
+      "w": 7,
+      "lower": 303,
+      "upper": 500,
+      "kind": "main",
+      "heading": "Bounds on A(n,8,w)",
+      "raw": "303 sd -500",
+      "links": [
+        "cwc/d8/a27.8.7.303H"
+      ]
+    },
+    "method": "Divisible-leave lemma with t=4",
+    "note": "notes/packing.md",
+    "evidence": [
+      "notes/packing.md"
+    ]
+  },
+  {
+    "n": 28,
+    "d": 8,
+    "w": 8,
+    "bound": 1746,
+    "kind": "johnson",
+    "group": "Main tables",
+    "old": "1750",
+    "table": {
+      "n": 28,
+      "d": 8,
+      "w": 8,
+      "lower": 1057,
+      "upper": 1750,
+      "kind": "main",
+      "heading": "Bounds on A(n,8,w)",
+      "raw": "1057 -1750",
+      "links": [
+        "cwc/d8/a28.8.8.1057H"
+      ]
+    },
+    "method": "Johnson from 499",
+    "note": "notes/packing.md",
+    "parent": [
+      27,
+      8,
+      7
+    ],
+    "premise": 499,
+    "evidence": [
+      "notes/packing.md"
+    ]
+  },
+  {
+    "n": 31,
+    "d": 10,
+    "w": 7,
+    "bound": 106,
+    "kind": "lp",
+    "group": "Main tables",
+    "old": "109",
+    "table": {
+      "n": 31,
+      "d": 10,
+      "w": 7,
+      "lower": 62,
+      "upper": 109,
+      "kind": "main",
+      "heading": "Bounds on A(n,10,w)",
+      "raw": "62 c -109",
+      "links": [
+        "cwc/d10/i31.7"
+      ]
+    },
+    "method": "Delsarte inequalities plus a distance-shell bound",
+    "note": "notes/linear_programming.md",
+    "certificate": "certificates/A31_10_7_lp.json",
+    "evidence": [
+      "notes/linear_programming.md",
+      "certificates/A31_10_7_lp.json",
+      "data/shell_bounds.json"
+    ]
+  },
+  {
+    "n": 29,
+    "d": 6,
+    "w": 5,
+    "bound": 362,
+    "kind": "jpf",
+    "group": "Main tables",
+    "old": "364",
+    "table": {
+      "n": 29,
+      "d": 6,
+      "w": 5,
+      "lower": 333,
+      "upper": 364,
+      "kind": "main",
+      "heading": "Bounds on A(n,6,w)",
+      "raw": "333 Ad -364",
+      "links": [
+        "cwc/d6/a29.6.5.333H"
+      ]
+    },
+    "method": "Javadi–Poorhadi–Fallah, preprint Theorem 13",
+    "note": "notes/corollaries.md",
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 29,
+    "d": 6,
+    "w": 8,
+    "bound": 16965,
+    "kind": "johnson",
+    "group": "Main tables",
+    "old": "not listed",
+    "table": {
+      "n": 29,
+      "d": 6,
+      "w": 8,
+      "lower": 8148,
+      "upper": null,
+      "kind": "main",
+      "heading": "Bounds on A(n,6,w)",
+      "raw": "8148 E -...",
+      "links": [
+        "cwc/d6/a29.6.8.8148H"
+      ]
+    },
+    "method": "Johnson from the preceding length",
+    "note": "notes/corollaries.md",
+    "parent": [
+      28,
+      6,
+      7
+    ],
+    "premise": 4680,
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 29,
+    "d": 6,
+    "w": 9,
+    "bound": 39585,
+    "kind": "johnson",
+    "group": "Main tables",
+    "old": "not listed",
+    "table": {
+      "n": 29,
+      "d": 6,
+      "w": 9,
+      "lower": 14781,
+      "upper": null,
+      "kind": "main",
+      "heading": "Bounds on A(n,6,w)",
+      "raw": "14781 Dz -...",
+      "links": [
+        "cwc/d6/a29.6.9.14781H"
+      ]
+    },
+    "method": "Johnson from the preceding length",
+    "note": "notes/corollaries.md",
+    "parent": [
+      28,
+      6,
+      8
+    ],
+    "premise": 12285,
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 29,
+    "d": 6,
+    "w": 10,
+    "bound": 90465,
+    "kind": "johnson",
+    "group": "Main tables",
+    "old": "not listed",
+    "table": {
+      "n": 29,
+      "d": 6,
+      "w": 10,
+      "lower": 27183,
+      "upper": null,
+      "kind": "main",
+      "heading": "Bounds on A(n,6,w)",
+      "raw": "27183 Dz -...",
+      "links": [
+        "cwc/d6/a29.6.10.27183H"
+      ]
+    },
+    "method": "Johnson from the preceding length",
+    "note": "notes/corollaries.md",
+    "parent": [
+      28,
+      6,
+      9
+    ],
+    "premise": 31195,
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 29,
+    "d": 6,
+    "w": 11,
+    "bound": 162226,
+    "kind": "lp",
+    "group": "Main tables",
+    "old": "not listed",
+    "table": {
+      "n": 29,
+      "d": 6,
+      "w": 11,
+      "lower": 42042,
+      "upper": null,
+      "kind": "main",
+      "heading": "Bounds on A(n,6,w)",
+      "raw": "42042 Dz -...",
+      "links": [
+        "cwc/d6/a29.6.11.42042H"
+      ]
+    },
+    "method": "Delsarte inequalities plus a distance-shell bound",
+    "note": "notes/linear_programming.md",
+    "certificate": "certificates/A29_6_11_lp.json",
+    "evidence": [
+      "notes/linear_programming.md",
+      "certificates/A29_6_11_lp.json",
+      "data/shell_bounds.json"
+    ]
+  },
+  {
+    "n": 29,
+    "d": 6,
+    "w": 12,
+    "bound": 228441,
+    "kind": "lp",
+    "group": "Main tables",
+    "old": "not listed",
+    "table": {
+      "n": 29,
+      "d": 6,
+      "w": 12,
+      "lower": 61823,
+      "upper": null,
+      "kind": "main",
+      "heading": "Bounds on A(n,6,w)",
+      "raw": "61823 Pl -...",
+      "links": [
+        "cwc/d6/a29.6.12.61823H"
+      ]
+    },
+    "method": "Delsarte inequalities",
+    "note": "notes/linear_programming.md",
+    "certificate": "certificates/A29_6_12_lp.json",
+    "evidence": [
+      "notes/linear_programming.md",
+      "certificates/A29_6_12_lp.json",
+      "data/shell_bounds.json"
+    ]
+  },
+  {
+    "n": 29,
+    "d": 6,
+    "w": 13,
+    "bound": 289604,
+    "kind": "lp",
+    "group": "Main tables",
+    "old": "not listed",
+    "table": {
+      "n": 29,
+      "d": 6,
+      "w": 13,
+      "lower": 80837,
+      "upper": null,
+      "kind": "main",
+      "heading": "Bounds on A(n,6,w)",
+      "raw": "80837 gs -...",
+      "links": []
+    },
+    "method": "Delsarte inequalities",
+    "note": "notes/linear_programming.md",
+    "certificate": "certificates/A29_6_13_lp.json",
+    "evidence": [
+      "notes/linear_programming.md",
+      "certificates/A29_6_13_lp.json",
+      "data/shell_bounds.json"
+    ]
+  },
+  {
+    "n": 29,
+    "d": 6,
+    "w": 14,
+    "bound": 322266,
+    "kind": "lp",
+    "group": "Main tables",
+    "old": "not listed",
+    "table": {
+      "n": 29,
+      "d": 6,
+      "w": 14,
+      "lower": 92366,
+      "upper": null,
+      "kind": "main",
+      "heading": "Bounds on A(n,6,w)",
+      "raw": "92366 gs -...",
+      "links": []
+    },
+    "method": "Delsarte inequalities",
+    "note": "notes/linear_programming.md",
+    "certificate": "certificates/A29_6_14_lp.json",
+    "evidence": [
+      "notes/linear_programming.md",
+      "certificates/A29_6_14_lp.json",
+      "data/shell_bounds.json"
+    ]
+  },
+  {
+    "n": 24,
+    "d": 6,
+    "w": 12,
+    "bound": 5625,
+    "kind": "code",
+    "group": "Main tables",
+    "old": "5617",
+    "table": {
+      "n": 24,
+      "d": 6,
+      "w": 12,
+      "lower": 5617,
+      "upper": 15906,
+      "kind": "main",
+      "heading": "Bounds on A(n,6,w)",
+      "raw": "5617 Mi -15906",
+      "links": [
+        "cwc/d6/a24.6.12.5617H"
+      ]
+    },
+    "method": "Explicit binary code; all pairwise distances checked",
+    "note": "notes/lower_bounds.md",
+    "code": {
+      "n": 24,
+      "d": 6,
+      "w": 12,
+      "count": 5625,
+      "file": "codes/a24.6.12.5625H",
+      "distance_distribution": {
+        "6": 380892,
+        "8": 1414871,
+        "10": 3707425,
+        "12": 5067310,
+        "14": 3514921,
+        "16": 1439068,
+        "18": 268923,
+        "20": 22480,
+        "22": 1569,
+        "24": 41
+      },
+      "previous_files": [
+        "cwc/d6/a24.6.12.5617H"
+      ]
+    },
+    "evidence": [
+      "notes/lower_bounds.md",
+      "codes/a24.6.12.5625H"
+    ]
+  },
+  {
+    "n": 25,
+    "d": 6,
+    "w": 11,
+    "bound": 8733,
+    "kind": "code",
+    "group": "Main tables",
+    "old": "8720",
+    "table": {
+      "n": 25,
+      "d": 6,
+      "w": 11,
+      "lower": 8720,
+      "upper": 24630,
+      "kind": "main",
+      "heading": "Bounds on A(n,6,w)",
+      "raw": "8720 Ol -24630",
+      "links": [
+        "cwc/d6/a25.6.11.8720H"
+      ]
+    },
+    "method": "Explicit binary code; all pairwise distances checked",
+    "note": "notes/lower_bounds.md",
+    "code": {
+      "n": 25,
+      "d": 6,
+      "w": 11,
+      "count": 8733,
+      "file": "codes/a25.6.11.8733H",
+      "distance_distribution": {
+        "6": 656814,
+        "8": 2651517,
+        "10": 7965652,
+        "12": 11968955,
+        "14": 9533166,
+        "16": 4329865,
+        "18": 918957,
+        "20": 100341,
+        "22": 3011
+      },
+      "previous_files": [
+        "cwc/d6/a25.6.11.8720H"
+      ]
+    },
+    "evidence": [
+      "notes/lower_bounds.md",
+      "codes/a25.6.11.8733H"
+    ]
+  },
+  {
+    "n": 25,
+    "d": 6,
+    "w": 12,
+    "bound": 9910,
+    "kind": "code",
+    "group": "Main tables",
+    "old": "9895",
+    "table": {
+      "n": 25,
+      "d": 6,
+      "w": 12,
+      "lower": 9895,
+      "upper": 30587,
+      "kind": "main",
+      "heading": "Bounds on A(n,6,w)",
+      "raw": "9895 Pl -30587",
+      "links": [
+        "cwc/d6/a25.6.12.9895H"
+      ]
+    },
+    "method": "Explicit binary code; all pairwise distances checked",
+    "note": "notes/lower_bounds.md",
+    "code": {
+      "n": 25,
+      "d": 6,
+      "w": 12,
+      "count": 9910,
+      "file": "codes/a25.6.12.9910H",
+      "distance_distribution": {
+        "6": 711484,
+        "8": 3278027,
+        "10": 9501401,
+        "12": 15173500,
+        "14": 12754994,
+        "16": 5976920,
+        "18": 1526527,
+        "20": 163282,
+        "22": 12900,
+        "24": 60
+      },
+      "previous_files": [
+        "cwc/d6/a25.6.12.9895H"
+      ]
+    },
+    "evidence": [
+      "notes/lower_bounds.md",
+      "codes/a25.6.12.9910H"
+    ]
+  },
+  {
+    "n": 26,
+    "d": 6,
+    "w": 11,
+    "bound": 12225,
+    "kind": "code",
+    "group": "Main tables",
+    "old": "12222",
+    "table": {
+      "n": 26,
+      "d": 6,
+      "w": 11,
+      "lower": 12222,
+      "upper": 42017,
+      "kind": "main",
+      "heading": "Bounds on A(n,6,w)",
+      "raw": "12222 Pl -42017 Mo",
+      "links": [
+        "cwc/d6/a26.6.11.12222H"
+      ]
+    },
+    "method": "Explicit binary code; all pairwise distances checked",
+    "note": "notes/lower_bounds.md",
+    "code": {
+      "n": 26,
+      "d": 6,
+      "w": 11,
+      "count": 12225,
+      "file": "codes/a26.6.11.12225H",
+      "distance_distribution": {
+        "6": 867479,
+        "8": 4284120,
+        "10": 13446359,
+        "12": 22435048,
+        "14": 20500814,
+        "16": 10208245,
+        "18": 2651519,
+        "20": 315171,
+        "22": 10445
+      },
+      "previous_files": [
+        "cwc/d6/a26.6.11.12222H"
+      ]
+    },
+    "evidence": [
+      "notes/lower_bounds.md",
+      "codes/a26.6.11.12225H"
+    ]
+  },
+  {
+    "n": 26,
+    "d": 6,
+    "w": 13,
+    "bound": 16254,
+    "kind": "code",
+    "group": "Main tables",
+    "old": "16225",
+    "table": {
+      "n": 26,
+      "d": 6,
+      "w": 13,
+      "lower": 16225,
+      "upper": 61174,
+      "kind": "main",
+      "heading": "Bounds on A(n,6,w)",
+      "raw": "16225 Pl -61174",
+      "links": [
+        "cwc/d6/a26.6.13.16225H"
+      ]
+    },
+    "method": "Explicit binary code; all pairwise distances checked",
+    "note": "notes/lower_bounds.md",
+    "code": {
+      "n": 26,
+      "d": 6,
+      "w": 13,
+      "count": 16254,
+      "file": "codes/a26.6.13.16254H",
+      "distance_distribution": {
+        "6": 1256545,
+        "8": 6446745,
+        "10": 21032635,
+        "12": 37787069,
+        "14": 37208463,
+        "16": 20740786,
+        "18": 6539796,
+        "20": 1002533,
+        "22": 70386,
+        "24": 2843,
+        "26": 330
+      },
+      "previous_files": [
+        "cwc/d6/a26.6.13.16225H"
+      ]
+    },
+    "evidence": [
+      "notes/lower_bounds.md",
+      "codes/a26.6.13.16254H"
+    ]
+  },
+  {
+    "n": 28,
+    "d": 8,
+    "w": 11,
+    "bound": 3832,
+    "kind": "code",
+    "group": "Main tables",
+    "old": "3791",
+    "table": {
+      "n": 28,
+      "d": 8,
+      "w": 11,
+      "lower": 3791,
+      "upper": 11896,
+      "kind": "main",
+      "heading": "Bounds on A(n,8,w)",
+      "raw": "3791 Ol -11896 KT",
+      "links": [
+        "cwc/d8/a28.8.11.3791H"
+      ]
+    },
+    "method": "Explicit binary code; all pairwise distances checked",
+    "note": "notes/lower_bounds.md",
+    "code": {
+      "n": 28,
+      "d": 8,
+      "w": 11,
+      "count": 3832,
+      "file": "codes/a28.8.11.3832H",
+      "distance_distribution": {
+        "8": 411203,
+        "10": 806723,
+        "12": 1958827,
+        "14": 2348269,
+        "16": 1251792,
+        "18": 485527,
+        "20": 75262,
+        "22": 2593
+      },
+      "previous_files": [
+        "cwc/d8/a28.8.11.3791H"
+      ]
+    },
+    "evidence": [
+      "notes/lower_bounds.md",
+      "codes/a28.8.11.3832H"
+    ]
+  },
+  {
+    "n": 28,
+    "d": 8,
+    "w": 14,
+    "bound": 6392,
+    "kind": "code",
+    "group": "Main tables",
+    "old": "6359",
+    "table": {
+      "n": 28,
+      "d": 8,
+      "w": 14,
+      "lower": 6359,
+      "upper": 22710,
+      "kind": "main",
+      "heading": "Bounds on A(n,8,w)",
+      "raw": "6359 Pl -22710 S",
+      "links": [
+        "cwc/d8/a28.8.14.6359H"
+      ]
+    },
+    "method": "Explicit binary code; all pairwise distances checked",
+    "note": "notes/lower_bounds.md",
+    "code": {
+      "n": 28,
+      "d": 8,
+      "w": 14,
+      "count": 6392,
+      "file": "codes/a28.8.14.6392H",
+      "distance_distribution": {
+        "8": 1052767,
+        "10": 1375627,
+        "12": 5135346,
+        "14": 5562367,
+        "16": 4325160,
+        "18": 2280222,
+        "20": 611580,
+        "22": 67432,
+        "24": 14249,
+        "26": 493,
+        "28": 393
+      },
+      "previous_files": [
+        "cwc/d8/a28.8.14.6359H"
+      ]
+    },
+    "evidence": [
+      "notes/lower_bounds.md",
+      "codes/a28.8.14.6392H"
+    ]
+  },
+  {
+    "n": 30,
+    "d": 10,
+    "w": 10,
+    "bound": 373,
+    "kind": "code",
+    "group": "Main tables",
+    "old": "322",
+    "table": {
+      "n": 30,
+      "d": 10,
+      "w": 10,
+      "lower": 322,
+      "upper": 1569,
+      "kind": "main",
+      "heading": "Bounds on A(n,10,w)",
+      "raw": "322 g -1569",
+      "links": [
+        "cwc/d10/i30.10"
+      ]
+    },
+    "method": "Once-shortened ternary Golay code, unit-vector expansion and 130 added words",
+    "note": "notes/lower_bounds.md",
+    "code": {
+      "n": 30,
+      "d": 10,
+      "w": 10,
+      "count": 373,
+      "file": "codes/a30.10.10.373",
+      "distance_distribution": {
+        "10": 14343,
+        "12": 19896,
+        "14": 12989,
+        "16": 17768,
+        "18": 4251,
+        "20": 131
+      },
+      "previous_files": [
+        "cwc/d10/i30.10"
+      ]
+    },
+    "evidence": [
+      "notes/lower_bounds.md",
+      "codes/a30.10.10.373",
+      "data/A30_ternary.json"
+    ]
+  },
+  {
+    "n": 32,
+    "d": 12,
+    "w": 11,
+    "bound": 215,
+    "kind": "code",
+    "group": "Main tables",
+    "old": "187",
+    "table": {
+      "n": 32,
+      "d": 12,
+      "w": 11,
+      "lower": 187,
+      "upper": 573,
+      "kind": "main",
+      "heading": "Bounds on A(n,12,w)",
+      "raw": "187 Bo -573 Po",
+      "links": [
+        "cwc/d12/a32.12.11.187"
+      ]
+    },
+    "method": "Dual ternary Golay code, unit-vector expansion, binary shortening and 53 added words",
+    "note": "notes/lower_bounds.md",
+    "code": {
+      "n": 32,
+      "d": 12,
+      "w": 11,
+      "count": 215,
+      "file": "codes/a32.12.11.215",
+      "distance_distribution": {
+        "12": 10216,
+        "14": 3845,
+        "16": 2564,
+        "18": 6157,
+        "20": 222,
+        "22": 1
+      },
+      "previous_files": [
+        "cwc/d12/a32.12.11.187"
+      ]
+    },
+    "evidence": [
+      "notes/lower_bounds.md",
+      "codes/a32.12.11.215",
+      "data/A32_ternary.json"
+    ]
+  },
+  {
+    "n": 47,
+    "d": 8,
+    "w": 7,
+    "bound": 5094,
+    "kind": "packing",
+    "group": "Other tables",
+    "old": "5095",
+    "table": {
+      "n": 47,
+      "d": 8,
+      "w": 7,
+      "lower": 2517,
+      "upper": 5095,
+      "kind": "list",
+      "heading": "Values of A(n,8,7)",
+      "raw": "2517 Hu -5095",
+      "links": [
+        "cwc/d8/a47.8.7.2517H"
+      ]
+    },
+    "method": "Divisible-leave lemma with t=4",
+    "note": "notes/packing.md",
+    "evidence": [
+      "notes/packing.md"
+    ]
+  },
+  {
+    "n": 33,
+    "d": 10,
+    "w": 7,
+    "bound": 136,
+    "kind": "lp",
+    "group": "Other tables",
+    "old": "150",
+    "table": {
+      "n": 33,
+      "d": 10,
+      "w": 7,
+      "lower": 72,
+      "upper": 150,
+      "kind": "list",
+      "heading": "Values of A(n,10,7)",
+      "raw": "72 g -150",
+      "links": [
+        "cwc/d10/i33.7"
+      ]
+    },
+    "method": "Delsarte inequalities plus a distance-shell bound",
+    "note": "notes/linear_programming.md",
+    "certificate": "certificates/A33_10_7_lp.json",
+    "evidence": [
+      "notes/linear_programming.md",
+      "certificates/A33_10_7_lp.json",
+      "data/shell_bounds.json"
+    ]
+  },
+  {
+    "n": 34,
+    "d": 10,
+    "w": 8,
+    "bound": 578,
+    "kind": "johnson",
+    "group": "Other tables",
+    "old": "637",
+    "table": {
+      "n": 34,
+      "d": 10,
+      "w": 8,
+      "lower": 181,
+      "upper": 637,
+      "kind": "list",
+      "heading": "Values of A(n,10,8)",
+      "raw": "181 g -637",
+      "links": [
+        "cwc/d10/i34.8"
+      ]
+    },
+    "method": "Johnson from 136",
+    "note": "notes/corollaries.md",
+    "parent": [
+      33,
+      10,
+      7
+    ],
+    "premise": 136,
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 38,
+    "d": 6,
+    "w": 5,
+    "bound": 840,
+    "kind": "jpf",
+    "group": "Other tables",
+    "old": "842",
+    "table": {
+      "n": 38,
+      "d": 6,
+      "w": 5,
+      "lower": 714,
+      "upper": 842,
+      "kind": "list",
+      "heading": "Values of A(n,6,5)",
+      "raw": "714 s -842",
+      "links": []
+    },
+    "method": "Javadi–Poorhadi–Fallah, preprint Theorem 13",
+    "note": "notes/corollaries.md",
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 53,
+    "d": 6,
+    "w": 5,
+    "bound": 2339,
+    "kind": "jpf",
+    "group": "Other tables",
+    "old": "2341",
+    "table": {
+      "n": 53,
+      "d": 6,
+      "w": 5,
+      "lower": 2145,
+      "upper": 2341,
+      "kind": "list",
+      "heading": "Values of A(n,6,5)",
+      "raw": "2145 Can -2341",
+      "links": [
+        "cwc/d6/a53.6.5.2145H"
+      ]
+    },
+    "method": "Javadi–Poorhadi–Fallah, preprint Theorem 13",
+    "note": "notes/corollaries.md",
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 52,
+    "d": 10,
+    "w": 7,
+    "bound": 628,
+    "kind": "jpf",
+    "group": "Other tables",
+    "old": "630",
+    "table": {
+      "n": 52,
+      "d": 10,
+      "w": 7,
+      "lower": 421,
+      "upper": 630,
+      "kind": "list",
+      "heading": "Values of A(n,10,7)",
+      "raw": "421 Bo -630",
+      "links": [
+        "cwc/d10/a52.10.7.421H"
+      ]
+    },
+    "method": "Javadi–Poorhadi–Fallah, preprint Theorem 13",
+    "note": "notes/corollaries.md",
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 62,
+    "d": 10,
+    "w": 7,
+    "bound": 1077,
+    "kind": "jpf",
+    "group": "Other tables",
+    "old": "1079",
+    "table": {
+      "n": 62,
+      "d": 10,
+      "w": 7,
+      "lower": 755,
+      "upper": 1079,
+      "kind": "list",
+      "heading": "Values of A(n,10,7)",
+      "raw": "755 Bo -1079",
+      "links": [
+        "cwc/d10/a62.10.7.755H"
+      ]
+    },
+    "method": "Javadi–Poorhadi–Fallah, preprint Theorem 13",
+    "note": "notes/corollaries.md",
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 30,
+    "d": 6,
+    "w": 6,
+    "bound": 1810,
+    "kind": "johnson",
+    "group": "Other tables",
+    "old": "1820",
+    "table": {
+      "n": 30,
+      "d": 6,
+      "w": 6,
+      "lower": 1316,
+      "upper": 1820,
+      "kind": "list",
+      "heading": "Values of A(n,6,6)",
+      "raw": "1316 E -1820",
+      "links": [
+        "cwc/d6/a30.6.6.1316H"
+      ]
+    },
+    "method": "Johnson applied to the preceding theorem",
+    "note": "notes/corollaries.md",
+    "parent": [
+      29,
+      6,
+      5
+    ],
+    "premise": 362,
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 39,
+    "d": 6,
+    "w": 6,
+    "bound": 5460,
+    "kind": "johnson",
+    "group": "Other tables",
+    "old": "5473",
+    "table": {
+      "n": 39,
+      "d": 6,
+      "w": 6,
+      "lower": 3822,
+      "upper": 5473,
+      "kind": "list",
+      "heading": "Values of A(n,6,6)",
+      "raw": "3822 g -5473",
+      "links": [
+        "cwc/d6/i39.6"
+      ]
+    },
+    "method": "Johnson applied to the preceding theorem",
+    "note": "notes/corollaries.md",
+    "parent": [
+      38,
+      6,
+      5
+    ],
+    "premise": 840,
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 54,
+    "d": 6,
+    "w": 6,
+    "bound": 21051,
+    "kind": "johnson",
+    "group": "Other tables",
+    "old": "21069",
+    "table": {
+      "n": 54,
+      "d": 6,
+      "w": 6,
+      "lower": 14469,
+      "upper": 21069,
+      "kind": "list",
+      "heading": "Values of A(n,6,6)",
+      "raw": "14469 g -21069",
+      "links": [
+        "cwc/d6/i54.6"
+      ]
+    },
+    "method": "Johnson applied to the preceding theorem",
+    "note": "notes/corollaries.md",
+    "parent": [
+      53,
+      6,
+      5
+    ],
+    "premise": 2339,
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 53,
+    "d": 10,
+    "w": 8,
+    "bound": 4160,
+    "kind": "johnson",
+    "group": "Other tables",
+    "old": "4173",
+    "table": {
+      "n": 53,
+      "d": 10,
+      "w": 8,
+      "lower": 1823,
+      "upper": 4173,
+      "kind": "list",
+      "heading": "Values of A(n,10,8)",
+      "raw": "1823 Bo -4173",
+      "links": [
+        "cwc/d10/a53.10.8.1823H"
+      ]
+    },
+    "method": "Johnson applied to the preceding theorem",
+    "note": "notes/corollaries.md",
+    "parent": [
+      52,
+      10,
+      7
+    ],
+    "premise": 628,
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 63,
+    "d": 10,
+    "w": 8,
+    "bound": 8481,
+    "kind": "johnson",
+    "group": "Other tables",
+    "old": "8497",
+    "table": {
+      "n": 63,
+      "d": 10,
+      "w": 8,
+      "lower": 4228,
+      "upper": 8497,
+      "kind": "list",
+      "heading": "Values of A(n,10,8)",
+      "raw": "4228 Bo -8497",
+      "links": [
+        "cwc/d10/a63.10.8.4228H"
+      ]
+    },
+    "method": "Johnson applied to the preceding theorem",
+    "note": "notes/corollaries.md",
+    "parent": [
+      62,
+      10,
+      7
+    ],
+    "premise": 1077,
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 34,
+    "d": 10,
+    "w": 7,
+    "bound": 155,
+    "kind": "johnson",
+    "group": "Other tables",
+    "old": "160",
+    "table": {
+      "n": 34,
+      "d": 10,
+      "w": 7,
+      "lower": 85,
+      "upper": 160,
+      "kind": "list",
+      "heading": "Values of A(n,10,7)",
+      "raw": "85 E -160",
+      "links": [
+        "cwc/d10/a34.10.7.85"
+      ]
+    },
+    "method": "Johnson from a tabulated or preceding upper bound",
+    "note": "notes/corollaries.md",
+    "parent": [
+      33,
+      10,
+      6
+    ],
+    "premise": 32,
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 37,
+    "d": 10,
+    "w": 7,
+    "bound": 195,
+    "kind": "johnson",
+    "group": "Other tables",
+    "old": "222",
+    "table": {
+      "n": 37,
+      "d": 10,
+      "w": 7,
+      "lower": 134,
+      "upper": 222,
+      "kind": "list",
+      "heading": "Values of A(n,10,7)",
+      "raw": "134 E -222",
+      "links": [
+        "cwc/d10/a37.10.7.134H"
+      ]
+    },
+    "method": "Johnson from a tabulated or preceding upper bound",
+    "note": "notes/corollaries.md",
+    "parent": [
+      36,
+      10,
+      6
+    ],
+    "premise": 37,
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 47,
+    "d": 10,
+    "w": 7,
+    "bound": 449,
+    "kind": "johnson",
+    "group": "Other tables",
+    "old": "462",
+    "table": {
+      "n": 47,
+      "d": 10,
+      "w": 7,
+      "lower": 333,
+      "upper": 462,
+      "kind": "list",
+      "heading": "Values of A(n,10,7)",
+      "raw": "333 Bo -462",
+      "links": [
+        "cwc/d10/a47.10.7.333H"
+      ]
+    },
+    "method": "Johnson from a tabulated or preceding upper bound",
+    "note": "notes/corollaries.md",
+    "parent": [
+      46,
+      10,
+      6
+    ],
+    "premise": 67,
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 33,
+    "d": 10,
+    "w": 8,
+    "bound": 511,
+    "kind": "johnson",
+    "group": "Other tables",
+    "old": "573",
+    "table": {
+      "n": 33,
+      "d": 10,
+      "w": 8,
+      "lower": 165,
+      "upper": 573,
+      "kind": "list",
+      "heading": "Values of A(n,10,8)",
+      "raw": "165 c -573",
+      "links": [
+        "cwc/d10/i33.8"
+      ]
+    },
+    "method": "Johnson from a tabulated or preceding upper bound",
+    "note": "notes/corollaries.md",
+    "parent": [
+      32,
+      10,
+      7
+    ],
+    "premise": 124,
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 35,
+    "d": 10,
+    "w": 8,
+    "bound": 678,
+    "kind": "johnson",
+    "group": "Other tables",
+    "old": "700",
+    "table": {
+      "n": 35,
+      "d": 10,
+      "w": 8,
+      "lower": 210,
+      "upper": 700,
+      "kind": "list",
+      "heading": "Values of A(n,10,8)",
+      "raw": "210 c -700",
+      "links": [
+        "cwc/d10/i35.8"
+      ]
+    },
+    "method": "Johnson from a tabulated or preceding upper bound",
+    "note": "notes/corollaries.md",
+    "parent": [
+      34,
+      10,
+      7
+    ],
+    "premise": 155,
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 38,
+    "d": 10,
+    "w": 8,
+    "bound": 926,
+    "kind": "johnson",
+    "group": "Other tables",
+    "old": "1053",
+    "table": {
+      "n": 38,
+      "d": 10,
+      "w": 8,
+      "lower": 285,
+      "upper": 1053,
+      "kind": "list",
+      "heading": "Values of A(n,10,8)",
+      "raw": "285 g -1053",
+      "links": [
+        "cwc/d10/i38.8"
+      ]
+    },
+    "method": "Johnson from a tabulated or preceding upper bound",
+    "note": "notes/corollaries.md",
+    "parent": [
+      37,
+      10,
+      7
+    ],
+    "premise": 195,
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 48,
+    "d": 10,
+    "w": 8,
+    "bound": 2694,
+    "kind": "johnson",
+    "group": "Other tables",
+    "old": "2772",
+    "table": {
+      "n": 48,
+      "d": 10,
+      "w": 8,
+      "lower": 905,
+      "upper": 2772,
+      "kind": "list",
+      "heading": "Values of A(n,10,8)",
+      "raw": "905 Bo -2772",
+      "links": [
+        "cwc/d10/a48.10.8.905H"
+      ]
+    },
+    "method": "Johnson from a tabulated or preceding upper bound",
+    "note": "notes/corollaries.md",
+    "parent": [
+      47,
+      10,
+      7
+    ],
+    "premise": 449,
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 42,
+    "d": 12,
+    "w": 8,
+    "bound": 152,
+    "kind": "johnson",
+    "group": "Other tables",
+    "old": "157",
+    "table": {
+      "n": 42,
+      "d": 12,
+      "w": 8,
+      "lower": 105,
+      "upper": 157,
+      "kind": "list",
+      "heading": "Values of A(n,12,8)",
+      "raw": "105 g -157",
+      "links": [
+        "cwc/d12/i42.8"
+      ]
+    },
+    "method": "Johnson from a tabulated or preceding upper bound",
+    "note": "notes/corollaries.md",
+    "parent": [
+      41,
+      12,
+      7
+    ],
+    "premise": 29,
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 43,
+    "d": 12,
+    "w": 8,
+    "bound": 182,
+    "kind": "johnson",
+    "group": "Other tables",
+    "old": "192",
+    "table": {
+      "n": 43,
+      "d": 12,
+      "w": 8,
+      "lower": 111,
+      "upper": 192,
+      "kind": "list",
+      "heading": "Values of A(n,12,8)",
+      "raw": "111 sb -192",
+      "links": [
+        "cwc/d12/a43.12.8.111"
+      ]
+    },
+    "method": "Johnson from a tabulated or preceding upper bound",
+    "note": "notes/corollaries.md",
+    "parent": [
+      42,
+      12,
+      7
+    ],
+    "premise": 34,
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  },
+  {
+    "n": 44,
+    "d": 12,
+    "w": 8,
+    "bound": 209,
+    "kind": "johnson",
+    "group": "Other tables",
+    "old": "234",
+    "table": {
+      "n": 44,
+      "d": 12,
+      "w": 8,
+      "lower": 124,
+      "upper": 234,
+      "kind": "list",
+      "heading": "Values of A(n,12,8)",
+      "raw": "124 sb -234",
+      "links": [
+        "cwc/d12/a44.12.8.124"
+      ]
+    },
+    "method": "Johnson from a tabulated or preceding upper bound",
+    "note": "notes/corollaries.md",
+    "parent": [
+      43,
+      12,
+      7
+    ],
+    "premise": 38,
+    "evidence": [
+      "notes/corollaries.md"
+    ]
+  }
+]

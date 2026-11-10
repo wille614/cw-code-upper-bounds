@@ -1,0 +1,142 @@
+{
+  "T": {
+    "T_7_0_24_7_10": {
+      "id": "T_7_0_24_7_10",
+      "parameters": [
+        7,
+        0,
+        24,
+        7,
+        10
+      ],
+      "method": "A_SINGLE",
+      "A_ref": "A24_10_7",
+      "bound": 24
+    },
+    "T_7_2_26_5_10": {
+      "id": "T_7_2_26_5_10",
+      "parameters": [
+        7,
+        2,
+        26,
+        5,
+        10
+      ],
+      "method": "J21",
+      "bound": 93,
+      "parent": "T_7_2_25_4_10",
+      "multiplier": 26,
+      "denominator": 5
+    },
+    "T_7_2_25_4_10": {
+      "id": "T_7_2_25_4_10",
+      "parameters": [
+        7,
+        2,
+        25,
+        4,
+        10
+      ],
+      "method": "J21",
+      "bound": 18,
+      "parent": "T_7_2_24_3_10",
+      "multiplier": 25,
+      "denominator": 4
+    },
+    "T_7_2_24_3_10": {
+      "id": "T_7_2_24_3_10",
+      "parameters": [
+        7,
+        2,
+        24,
+        3,
+        10
+      ],
+      "method": "DISJOINT",
+      "bound": 3
+    },
+    "T_11_3_18_3_6": {
+      "id": "T_11_3_18_3_6",
+      "parameters": [
+        11,
+        3,
+        18,
+        3,
+        6
+      ],
+      "method": "J21",
+      "bound": 864,
+      "parent": "T_11_3_17_2_6",
+      "multiplier": 18,
+      "denominator": 3
+    },
+    "T_11_3_17_2_6": {
+      "id": "T_11_3_17_2_6",
+      "parameters": [
+        11,
+        3,
+        17,
+        2,
+        6
+      ],
+      "method": "J21",
+      "bound": 144,
+      "parent": "T_11_3_16_1_6",
+      "multiplier": 17,
+      "denominator": 2
+    },
+    "T_11_3_16_1_6": {
+      "id": "T_11_3_16_1_6",
+      "parameters": [
+        11,
+        3,
+        16,
+        1,
+        6
+      ],
+      "method": "J10",
+      "bound": 17,
+      "parent": "T_10_3_16_1_6",
+      "multiplier": 11,
+      "denominator": 8
+    },
+    "T_10_3_16_1_6": {
+      "id": "T_10_3_16_1_6",
+      "parameters": [
+        10,
+        3,
+        16,
+        1,
+        6
+      ],
+      "method": "J11",
+      "bound": 13,
+      "parent": "T_9_2_16_1_6",
+      "multiplier": 10,
+      "denominator": 3
+    },
+    "T_9_2_16_1_6": {
+      "id": "T_9_2_16_1_6",
+      "parameters": [
+        9,
+        2,
+        16,
+        1,
+        6
+      ],
+      "method": "DISJOINT",
+      "bound": 4
+    }
+  },
+  "A": {
+    "A24_10_7": {
+      "id": "A24_10_7",
+      "n": 24,
+      "d": 10,
+      "w": 7,
+      "bound": 24,
+      "method": "PAGE",
+      "source_url": "https://aeb.win.tue.nl/codes/Andw.html"
+    }
+  }
+}

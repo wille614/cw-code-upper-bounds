@@ -1,6 +1,7 @@
 /replay/
 /certificates/*.gz
-data/*.gz
+/data/*.gz
+/baselines/*.gz
+/attachments/*.gz
 __pycache__/
 *.pyc
-baselines/*.gz

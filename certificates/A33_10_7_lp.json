@@ -1,0 +1,33 @@
+{
+  "n": 33,
+  "d": 10,
+  "w": 7,
+  "distances": [
+    5,
+    6,
+    7
+  ],
+  "constraints": [
+    {
+      "type": "Delsarte",
+      "k": 1
+    },
+    {
+      "type": "Delsarte",
+      "k": 2
+    },
+    {
+      "type": "shell",
+      "i": 5,
+      "proof": "T_7_2_26_5_10"
+    }
+  ],
+  "dual": [
+    "1664/217",
+    "3575/217",
+    "176/147"
+  ],
+  "objective": "6688/49",
+  "integer_bound": 136,
+  "schema": "rational-distance-distribution"
+}
