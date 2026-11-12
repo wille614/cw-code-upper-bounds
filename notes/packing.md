@@ -1,96 +1,156 @@
-# Divisible leaves and two packing bounds
+# A bound for t-(v,k,1) packings with t >= 3
 
-A simple t-uniform hypergraph H is properly K_k^(t)-divisible if
-binom(k−|S|,t−|S|) divides deg_H(S) for every nonempty S with |S|<t.
-There is no divisibility condition on its total number E of edges.
-Throughout k>=t>=2, Q=binom(k,t), b=binom(k−1,t−1), and
-delta_v=deg_H(v)/b.
+**Notation.** Throughout, v >= k >= t >= 2 are integers, and V is a set
+of v points. C(n,m) is a binomial coefficient; Q = C(k,t) and
+b = C(k-1,t-1), so that k b = t Q. For a set S and a point u not in
+S, S + u is the set S with u added.
 
-## Theorem 1
+A t-(v,k,1) packing is a collection P of k-subsets of V (blocks) such
+that every t-subset of V lies in at most one block. Two blocks then
+meet in at most t-1 points, that is, they are at Hamming distance at
+least 2(k-t+1). So the maximum of |P| is A(v, 2(k-t+1), k), where
+A(n,d,w) is the maximum size of a binary code of length n, constant
+weight w and minimum distance at least d.
 
-For every vertex v, delta_v <= E/Q. Consequently there is no such
-hypergraph with 0<E<Q; at E=Q its nonisolated part is K_k^(t).
+The leave of P is the t-uniform hypergraph L on V whose edges are the
+t-subsets of V that lie in no block.
 
-Proof. Induct on t. At t=2, if D=deg(v), every neighbor of v has degree
-at least k−1. The sum of the degrees on v and its D neighbors is at least
-kD. Thus 2E>=kD, which is the required inequality.
+**Theorem.** Let t >= 3. Suppose that C(k-s,t-s) divides C(v-s,t-s) for
+s = 1, ..., t-1, and that C(k,t) does not divide C(v,t). Then
 
-For t>=3 the link H_u is a simple (t−1)-uniform, properly
-K_(k−1)^(t−1)-divisible hypergraph: the degree of T in the link equals
-deg_H(T union {u}). Its edge count is b delta_u. Induction in H_u gives
+```
+    |P| <= floor( C(v,t) / C(k,t) ) - 2.
+```
 
-    delta_uv := deg_H({u,v}) / binom(k−2,t−2) <= delta_u,
+```
+Examples (t = 4, k = 7, so C(6,3) = 20, C(5,2) = 10, C(4,1) = 4 and
+Q = C(7,4) = 35).
+v = 27: C(26,3) = 2600 = 130*20, C(25,2) = 300 = 30*10,
+C(24,1) = 24 = 6*4, and C(27,4) = 17550 = 501*35 + 15.
+Hence A(27,8,7) <= 499.
+v = 47: C(46,3) = 15180 = 759*20, C(45,2) = 990 = 99*10,
+C(44,1) = 44 = 11*4, and C(47,4) = 178365 = 5096*35 + 5.
+Hence A(47,8,7) <= 5094.
+```
 
-and the symmetric inequality with delta_v. Double counting gives
-sum_(u!=v) delta_uv = (k−1)delta_v. Hence
+The reason is this. In the leave, the number of edges on a set of s
+points, 1 <= s <= t-1, is divisible as it is in a complete hypergraph
+on k points. A hypergraph with this property is empty, or complete
+on k points, or has at least 2Q edges.
 
-    sum_u delta_u >= delta_v + sum_(u!=v) delta_uv = k delta_v,
-    sum_u delta_u = tE/b = kE/Q.
+## 1. The degrees of the leave.
+For a set S of points, deg(S) is the number of edges containing S.
+Let 1 <= |S| = s <= t-1. There are C(v-s,t-s) t-subsets of V that
+contain S. A block containing S contains C(k-s,t-s) of them, and no
+t-subset lies in two blocks. So in the leave
 
-This proves the inequality. Every positive delta_v is an integer.
-Therefore 0<E<Q is impossible. At E=Q each positive delta_v equals 1
-and their sum is k, so the support has exactly k vertices. Simplicity
-and E=binom(k,t) then force every t-subset of the support to be an edge.
+```
+    deg(S) = C(v-s,t-s) - m C(k-s,t-s),
+```
 
-## Theorem 2
+where m is the number of blocks containing S. By assumption this is
+divisible by C(k-s,t-s). So the leave has the property
 
-For t>=3, the possible edge counts satisfy E=0, E=Q, or E>=2Q.
+```
+(D)  deg(S) is divisible by C(k-s,t-s) whenever 1 <= |S| = s <= t-1.
+```
 
-Proof. Suppose 0<E<2Q. Theorem 1 makes every positive delta_v equal to 1.
-Each nonempty link has binom(k−1,t−1) edges, so the equality case of
-Theorem 1 at rank t−1>=2 makes it complete on k−1 vertices. Let N(v)
-be that support and W={v} union N(v). For u,x in N(v), u!=x, there is
-a (t−1)-subset of N(v) containing both, hence an edge containing v,u,x.
-It follows that N(u) contains W\{u}. Both have size k−1, so they are
-equal. Every t-subset of W is an edge, by taking the complete link at
-any of its vertices. No edge meets both W and its complement, since
-that would enlarge a neighbor set. Each nonempty component is therefore
-K_k^(t). Since E<2Q, exactly one is possible, and E=Q.
+Each block contains Q t-subsets, and no t-subset lies in two blocks.
+So the leave has e = C(v,t) - |P| Q edges.
 
-The rank assumption matters: a four-cycle is properly triangle-divisible
-and has four edges, between 3 and 6. Simplicity is also essential.
+**2. Lemma 1.** Let k >= t >= 2, and let L be a t-uniform hypergraph
+without repeated edges, with e edges, satisfying (D). Then every
+point lies on at most t e / k edges. If e > 0 then e >= Q, and if
+e = Q then L is the complete t-uniform hypergraph on k points (and
+isolated points).
 
-## Packing corollary
+**Proof.** Write d(x) = deg({x}). By (D) it is a multiple of b. The sum
+of d(x) over all points is t e. We show d(x) <= t e / k by induction
+on t.
 
-Let P be a t-(v,k,1) packing, t>=3. Suppose
+t = 2. L is a graph in which every degree is a multiple of k-1. Let
+x have degree D > 0. Each neighbour of x has positive degree, hence
+degree at least k-1. The degrees of x and of its D neighbours add up
+to at least D + D(k-1) = kD, and to at most 2e. So D <= 2e/k.
 
-    binom(k−s,t−s) divides binom(v−s,t−s),  1<=s<t,
-    binom(k,t) does not divide binom(v,t).
+t >= 3. For a point u, let L_u be the (t-1)-uniform hypergraph whose
+edges are the sets E \ {u}, for the edges E of L on u. It has d(u)
+edges, none repeated. If S does not contain u and 1 <= |S| = s <=
+t-2, then S lies on deg(S + u) edges of L_u, and by (D) this number
+is divisible by C(k-s-1,t-s-1). So L_u satisfies (D) with t-1, k-1
+instead of t, k. By induction, a point y other than u lies on at
+most (t-1) d(u) / (k-1) edges of L_u:
 
-Its leave H consists of the uncovered t-subsets and is simple. For every
-proper nonempty S,
+```
+    deg({u,y}) <= (t-1) d(u) / (k-1).                          (1)
+```
 
-    deg_H(S) = binom(v−|S|,t−|S|)
-               − binom(k−|S|,t−|S|) · #{B in P : S subset B}.
+Fix y and add (1) over all u other than y. On the left, each edge on
+y is counted t-1 times, so the sum is (t-1) d(y). On the right, the
+sum of d(u) over u other than y is t e - d(y). Hence
+```
+(k-1) d(y) <= t e - d(y), that is, d(y) <= t e / k.
+```
 
-Thus H is properly divisible. Since E=binom(v,t)−Q|P| has nonzero
-remainder modulo Q, E is neither 0 nor Q. Theorem 2 gives E>=2Q and
+If e > 0, some point has d(x) > 0, hence d(x) >= b, and
+e >= k b / t = Q. If e = Q, then d(x) <= t Q / k = b for all x, so
+every point on an edge has d(x) = b, and there are t e / b = k such
+points. The Q edges are distinct t-subsets of these k points, and
+there are only C(k,t) = Q such subsets. So every one is an edge.
 
-    |P| <= floor(binom(v,t)/binom(k,t)) − 2.
+**3. Lemma 2.** Let t >= 3, and let L be as in Lemma 1. Then e = 0,
+e = Q, or e >= 2Q.
 
-Weight k and distance 2(k−t+1) are equivalent to this packing condition.
-For t=4,k=7 the substitutions are:
+**Proof.** Suppose 0 < e < 2Q. For a point x on an edge, let N(x) be the
+set of the other points that lie on an edge with x.
 
-| v | binom(v,4) | Q | remainder | floor(binom(v,4)/Q)−2 |
-|---|---:|---:|---:|---:|
-| 27 | 17550 | 35 | 15 | 499 |
-| 47 | 178365 | 35 | 5 | 5094 |
+(a) Let x be on an edge. By Lemma 1, d(x) <= t e / k < 2b, so
+d(x) = b. Then L_x has b = C(k-1,t-1) edges and satisfies (D) with
+t-1 >= 2 and k-1. By the last part of Lemma 1, L_x is the complete
+(t-1)-uniform hypergraph on k-1 points. These points are N(x). So
+|N(x)| = k-1, and every (t-1)-subset of N(x), with x added, is an
+edge.
 
-For v=27 the three proper divisibility checks are 20|2600, 10|300,
-4|24; for v=47 they are 20|15180, 10|990, 4|44. Consequently
-A(27,8,7)<=499 and A(47,8,7)<=5094. Johnson's incidence count also gives
-A(28,8,8)<=floor(28·499/8)=1746. The single-entry verifier checks each
-integer substitution and divisibility condition. The general theorems
-are proved above, rather than inferred from finite tests.
+(b) Let x be on an edge and W = N(x) + x. Then N(y) = W \ {y} for
+every y in W. For y = x this is the definition of W. Let y be in
+N(x). Every other point z of W is on an edge with y: if z = x, by
+the definition of N(x); if z is in N(x), take a (t-1)-subset of N(x)
+containing y and z (possible, as 2 <= t-1 <= k-1) and add x. So
+N(y) contains W \ {y}. By (a) both have k-1 points, so they are
+equal.
 
-Related observations appear in Brouwer [1], pp.89–91. For t=3,
-Javadi–Poorhadi–Fallah [2, preprint Theorem 13] give a stronger result:
-under the corresponding hypotheses their nested Johnson bound is reduced
-by 3. The two t=4 substitutions above use Theorem 2, and the t=3
-corollaries in [corollaries.md](corollaries.md) are attributed to [2].
+(c) By (b), an edge on a point y of W lies inside W, since its other
+points are in N(y). And every t-subset T of W is an edge: take y in
+T; then T \ {y} is a (t-1)-subset of N(y), and by (a) T is an edge.
+So W carries a complete hypergraph with Q edges, and no other edge
+meets W.
 
-References:
+(d) If some point x' on an edge is outside W, form W' = N(x') + x'
+in the same way. If W' met W, the complete hypergraph on W' would
+have an edge containing x' and a point of W, against (c). So W' is
+disjoint from W. Continuing, the edges of L fall into complete
+hypergraphs on disjoint k-sets, each with Q edges. Since 0 < e < 2Q
+there is exactly one, and e = Q.
 
-1. A. E. Brouwer, *Packing and covering of (k choose t)-sets*, in A. Schrijver (ed.), *Packing and Covering in Combinatorics*, Mathematical Centre Tracts 106 (1979), 89–97. [Volume](https://ir.cwi.nl/pub/10189/).
-2. R. Javadi, E. Poorhadi and F. Fallah, *Packing cliques in 3-uniform hypergraphs*, J. Combin. Des. 28(8) (2020), 580–603. [DOI](https://doi.org/10.1002/jcd.21717). The theorem numbering is from *On the packing for triples*, [arXiv:1905.10807v1](https://arxiv.org/pdf/1905.10807v1), Theorem 13.
-3. S. M. Johnson, *A new upper bound for error-correcting codes*, IRE Trans. Inform. Theory 8 (1962), 203–207. [DOI](https://doi.org/10.1109/TIT.1962.1057714).
+**4. Proof of the theorem.** By 1, the leave satisfies (D) and has
+e = C(v,t) - |P| Q edges. Let r be the remainder of C(v,t) on
+division by Q; by assumption 1 <= r <= Q-1. Then e = aQ + r for an
+integer a, so e is neither 0 nor Q. By Lemma 2, e >= 2Q, hence
+a >= 2 and e >= 2Q + r. Therefore
+
+```
+    |P| = (C(v,t) - e) / Q <= (C(v,t) - r) / Q - 2
+        = floor( C(v,t) / Q ) - 2.
+```
+
+## Remarks.
+Lemma 2 fails for t = 2: the 4-cycle has all degrees divisible by 2
+(k = 3) and has 4 edges, between Q = 3 and 2Q = 6.
+For t = 3, Javadi, Poorhadi and Fallah (Packing cliques in 3-uniform
+hypergraphs, J. Combin. Des. 28 (2020) 580-603; Theorem 13 in
+arXiv:1905.10807) prove the bound with -3 instead of -2 under the
+same conditions.
+The argument is close to pages 89-91 of A. E. Brouwer, Packing and
+covering of (k choose t)-sets, in: A. Schrijver (ed.), Packing and
+Covering in Combinatorics, Math. Centre Tracts 106, Amsterdam, 1979,
+pp. 89-97.
