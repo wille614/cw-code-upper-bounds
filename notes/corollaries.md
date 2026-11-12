@@ -74,7 +74,7 @@ For the last row, the checker also verifies the rational parent
 certificate. The seven consecutive upper bounds for n=29,d=6,w=8,...,14
 are therefore 16965,39585,90465,162226,228441,289604,322266. The last
 four are documented in [linear_programming.md](linear_programming.md).
-The [packing bound A(27,8,7)<=499](packing.md) gives
+The [packing bound A(27,8,7)<=499](packing.pdf) gives
 A(28,8,8)<=floor(28·499/8)=1746 by the same Johnson bound.
 
 References:

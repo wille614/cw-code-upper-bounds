@@ -1,0 +1,374 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.4cm]{geometry}
+\newtheorem*{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\one}{\mathbf{1}}
+\newcommand{\T}{^{\mathsf T}}
+\emergencystretch=1.5em
+\title{\large\bfseries The bound $A(32,16,13)\le 26$}
+\author{Jiang Chang}
+\date{November 2026}
+\begin{document}
+\maketitle
+
+\paragraph{Notation.}
+$A(n,d,w)$ is the maximum size of a binary code of length $n$, constant
+weight $w$ and minimum distance at least $d$. A word of length $32$ and
+weight $13$ is regarded as a $13$-subset of a set of $32$ points (the
+coordinate positions). Two words $c,c'$ are at distance
+$2(13-\abs{c\cap c'})$, so their distance is at least $16$ exactly when
+$\abs{c\cap c'}\le 5$.
+
+\begin{theorem}
+$A(32,16,13)\le 26$.
+\end{theorem}
+
+The bounds known before were $25\le A(32,16,13)\le 27$, see~\cite{Btab}.
+The Theorem does not determine $A(32,16,13)$.
+
+\paragraph{Outline.}
+Sections 1--4 are proved by hand. They show that a code with $27$ words
+would have one of $102$ possible ``defect graphs'', and that for each of
+them certain systems of linear equations would have a solution in
+nonnegative numbers. Section~5 states what is then checked by computer, in
+exact arithmetic: in each of the $102$ cases a necessary condition fails.
+The number $102$ of graphs is also confirmed there.
+Section~6 treats one of the cases by hand, as an illustration. No result on
+the completion of partial Hadamard matrices is used.
+
+\section{Counting in columns}
+
+Let $c_1,\dots,c_M$ be the words of a code. For $a\ne b$ put
+\[
+\delta_{ab}=5-\abs{c_a\cap c_b}\ \ge 0 ,
+\]
+and for a point $j$ let $r_j$ be the number of words that contain $j$.
+Counting the pairs (word, point on it), and the triples (two words, common
+point), gives
+\begin{equation}
+\sum_j r_j=13M,\qquad
+\sum_j\binom{r_j}{2}=\sum_{a<b}\abs{c_a\cap c_b}
+ =5\binom M2-\sum_{a<b}\delta_{ab}. \tag{1}
+\end{equation}
+For integers $r$ and $q$,
+\begin{equation}
+\binom r2=qr-\frac{q(q+1)}2+\frac{(r-q)(r-q-1)}2 ,\tag{2}
+\end{equation}
+and the last term is nonnegative, being half the product of two consecutive
+integers.
+
+\begin{lemma}
+$M\le 27$. If $M=27$, then
+\begin{equation}
+\sum_{a<b}\delta_{ab}+\sum_j\frac{(r_j-10)(r_j-11)}2=5. \tag{3}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let $M=28$. Adding (2) with $q=11$ over the $32$ points and using (1) gives
+$\sum_j\binom{r_j}2\ge 11\cdot 13\cdot 28-32\cdot 66=1892$, while (1) gives
+$\sum_j\binom{r_j}2\le 5\binom{28}2=1890$. So there is no code with $28$
+words, and hence none with more.
+Let $M=27$. Adding (2) with $q=10$ gives
+$\sum_j\binom{r_j}2=10\cdot 13\cdot 27-32\cdot 55+\sum_j(r_j-10)(r_j-11)/2
+=1750+\sum_j(r_j-10)(r_j-11)/2$, and by (1) the left side equals
+$5\binom{27}2-\sum_{a<b}\delta_{ab}=1755-\sum_{a<b}\delta_{ab}$.
+\end{proof}
+
+\emph{From now on $M=27$.} All terms in (3) are nonnegative integers.
+The \emph{defect graph} $G$ has the $27$ words as vertices; $a$ and $b$ are
+joined by an edge of weight $\delta_{ab}$ whenever $\delta_{ab}>0$. Let
+$D=\sum_{a<b}\delta_{ab}$ be its total weight. By (3), $D\le 5$, so $G$ has
+at most $10$ non-isolated vertices, and every point $j$ satisfies
+\begin{equation}
+\frac{(r_j-10)(r_j-11)}2\le 5-D. \tag{4}
+\end{equation}
+A graph with edge weights of total $D$ is the same thing as a multigraph
+without loops with $D$ edges. Up to isomorphism, and disregarding isolated
+vertices, the number of such multigraphs with $D=0,1,2,3,4,5$ edges is
+$1,1,3,8,23,66$, which is $102$ in all. We show that none of these $102$
+graphs is the defect graph of a code. Fix one of them, $G$, with $v$
+non-isolated vertices, and let $u=27-v$.
+
+\section{The Gram matrix}
+
+Let $X$ be the $27\times 32$ matrix with entry $-1$ in row $a$ and column
+$j$ if $j\in c_a$, and $+1$ otherwise. The inner product of two rows is $32$
+minus twice their distance, that is, $-4\delta_{ab}$ for $a\ne b$, and
+$32$ for $a=b$. Each row sum is $32-26=6$. So
+\begin{equation}
+XX\T=H:=32\,I-4\Delta,\qquad X\one=6\cdot\one, \tag{5}
+\end{equation}
+where $\Delta=(\delta_{ab})$ has zero diagonal and $\one$ denotes an
+all-one vector (of length $32$ on the left, $27$ on the right). The matrix
+$H$ depends only on $G$.
+
+\begin{lemma}
+$H$ is positive definite.
+\end{lemma}
+
+\begin{proof}
+Let $d_a=\sum_b\delta_{ab}\le D\le 5$. For a real vector $y$, using
+$2y_ay_b\le y_a^2+y_b^2$,
+\[
+y\T Hy=32\sum_a y_a^2-8\sum_{a<b}\delta_{ab}\,y_ay_b
+\ \ge\ \sum_a(32-4d_a)\,y_a^2\ \ge\ 12\sum_a y_a^2 . \qedhere
+\]
+\end{proof}
+
+Put
+\[
+\beta=6\,H^{-1}\one,\qquad S=32-36\cdot\one\T H^{-1}\one .
+\]
+For a point $j$ let $z_j\in\{\pm 1\}^{27}$ be the $j$-th column of $X$.
+
+\begin{lemma}
+\textup{(i)} $S\ge 0$.
+
+\textup{(ii)} If $S>0$, let $P$ be the $32\times 32$ matrix with entries
+\[
+P_{jj'}=z_j\T H^{-1}z_{j'}+\frac{(1-\beta\T z_j)(1-\beta\T z_{j'})}{S}.
+\]
+Then $I-P$ is positive semidefinite. In particular $P_{jj}\le 1$ for every
+point $j$.
+
+\textup{(iii)} If $S=0$, then $\beta\T z_j=1$ and $z_j\T H^{-1}z_j\le 1$
+for every point $j$.
+\end{lemma}
+
+\begin{proof}
+Let $W\subseteq\mathbb R^{32}$ be the row space of $X$. By Lemma~2 the
+orthogonal projection onto $W$ is $\Pi=X\T H^{-1}X$. By (5),
+$\Pi\one=X\T H^{-1}\cdot 6\cdot\one=X\T\beta$, and
+$\abs{\Pi\one}^2=\one\T\Pi\one=36\cdot\one\T H^{-1}\one$. So the vector
+$\one-X\T\beta$ is orthogonal to $W$ and has squared length $32-36\cdot
+\one\T H^{-1}\one=S$. This proves (i). Its $j$-th entry is $1-\beta\T z_j$,
+and the $(j,j')$ entry of $\Pi$ is $z_j\T H^{-1}z_{j'}$. If $S>0$, then
+$P=\Pi+(\one-X\T\beta)(\one-X\T\beta)\T/S$ is the orthogonal projection
+onto the space spanned by $W$ and $\one$, so $I-P$ is positive
+semidefinite. If $S=0$, then $\one=X\T\beta$, and $I-\Pi$ is positive
+semidefinite.
+\end{proof}
+
+\section{Types of points}
+
+Number the words so that $c_1,\dots,c_v$ are the non-isolated vertices of
+$G$. Then $H$ is the direct sum of the $v\times v$ matrix $H_v$ belonging to
+these words and $32\,I_u$. Consequently $\beta=(\beta_v,\frac3{16}\one)$
+with $\beta_v=6H_v^{-1}\one$.
+
+The \emph{type} of a point $j$ is the pair $(b,a)$, where
+$b\in\{0,1\}^v$ has $b_k=1$ exactly when $j\in c_k$, and $a$ is the number
+of the words $c_{v+1},\dots,c_{27}$ that contain $j$. So
+$r_j=\abs b+a$, where $\abs b=\sum_k b_k$. Put $z_b=\one-2b\in\{\pm1\}^v$.
+For a point of type $(b,a)$,
+\begin{equation}
+z_j\T H^{-1}z_j=z_b\T H_v^{-1}z_b+\frac u{32},\qquad
+\beta\T z_j=\beta_v\T z_b+\frac3{16}(u-2a). \tag{6}
+\end{equation}
+So whether a point satisfies (4) and the conditions of Lemma~3 for a single
+point depends only on its type. A type $(b,a)$, with $0\le a\le u$, is
+called \emph{admissible} if it satisfies (4) and, when $S>0$, the condition
+$P_{jj}\le 1$; when $S=0$, the conditions $\beta\T z_j=1$ and
+$z_j\T H^{-1}z_j\le 1$. There are $2^v(u+1)$ types. If $v=0$, the terms
+with $H_v$, $\beta_v$ and $z_b$ are absent.
+
+For an admissible type $i=(b,a)$ let $N_i$ be the number of points of type
+$i$. Then $N_i\ge 0$, and
+\begin{align*}
+\text{(E1)}\quad & \textstyle\sum_i N_i=32, \\
+\text{(E2)}\quad & \textstyle\sum_i a\,N_i=13u, \\
+\text{(E3)}\quad & \textstyle\sum_i \binom a2 N_i=5\binom u2, \\
+\text{(E4)}\quad & \textstyle\sum_i b_k\,N_i=13 && (1\le k\le v),\\
+\text{(E5)}\quad & \textstyle\sum_i a\,b_k\,N_i=5u && (1\le k\le v),\\
+\text{(E6)}\quad & \textstyle\sum_i b_kb_l\,N_i=5-\delta_{kl} && (1\le k<l\le v).
+\end{align*}
+Indeed, these count: the points; the pairs (isolated word, point on it);
+the triples (two isolated words, common point), where two isolated words
+have exactly $5$ common points because their $\delta$ is $0$; the points of
+$c_k$; the pairs (isolated word, common point with $c_k$), again $5$ for
+each isolated word; and the common points of $c_k$ and $c_l$. A code thus
+gives a solution in nonnegative integers; to exclude $G$ it suffices that
+there is no solution in nonnegative real numbers.
+
+\section{Pairs of points}
+
+In this section $S>0$. Let $j\ne j'$ be points of types $i=(b,a)$ and
+$i'=(b',a')$, and let $t$ be the number of isolated words that contain both
+(their \emph{overlap}). Then $\max(0,a+a'-u)\le t\le\min(a,a')$. On the
+isolated words, $z_j$ and $z_{j'}$ differ in $a+a'-2t$ places. So, with
+\[
+e_i=1-\beta\T z_j=1-\beta_v\T z_b-\tfrac3{16}(u-2a),
+\]
+the entries of $P$ are
+\[
+P_{jj'}=p_{ii'}(t):=z_b\T H_v^{-1}z_{b'}+\frac{u-2a-2a'+4t}{32}
++\frac{e_ie_{i'}}S,\qquad
+P_{jj}=p_i:=z_b\T H_v^{-1}z_b+\frac u{32}+\frac{e_i^2}S .
+\]
+By Lemma~3(ii) every $2\times2$ principal minor of $I-P$ is nonnegative:
+\begin{equation}
+p_{ii'}(t)^2\le(1-p_i)(1-p_{i'}). \tag{7}
+\end{equation}
+A triple $(i,i',t)$ of two admissible types and an overlap is called
+\emph{admissible} if it satisfies (7).
+
+For an admissible triple let $Z_{i,i',t}$ be the number of ordered pairs
+$(j,j')$ of distinct points with types $i$, $i'$ and overlap $t$. Then
+$Z_{i,i',t}=Z_{i',i,t}\ge 0$. Each of them counts ordered pairs, so no
+factor $2$ arises when the two are treated as one unknown.
+
+Fix a point $j$ of type $i=(b,a)$. For each of the other $31$ points $j'$,
+of type $(b',a')$ and with overlap $t$, put $h=a'-t$; this is the number of
+isolated words that contain $j'$ but not $j$. Adding over the $31$ points
+$j'$ we find:
+\begin{center}\small
+\begin{tabular}{lll}
+\hline
+Quantity added over $j'$ & Sum & Reason \\
+\hline
+$1$ & $31$ & \\
+$t$ & $12a$ & an isolated word on $j$ has $12$ other points \\
+$h$ & $13(u-a)$ & an isolated word not on $j$ has $13$ points \\
+$\binom t2$ & $4\binom a2$ & two isolated words on $j$ have $4$ other common points \\
+$th$ & $5a(u-a)$ & isolated words on $j$ and not on $j$ have $5$ common points \\
+$\binom h2$ & $5\binom{u-a}2$ & two isolated words not on $j$ have $5$ common points \\
+$b'_k$ & $13-b_k$ & $c_k$ has $13-b_k$ points other than $j$ \\
+$t\,b'_k$ & $a(5-b_k)$ & $c_k$ and an isolated word on $j$ \\
+$h\,b'_k$ & $5(u-a)$ & $c_k$ and an isolated word not on $j$ \\
+$b'_kb'_l$ & $5-\delta_{kl}-b_kb_l$ & $c_k$ and $c_l$, for $k<l$ \\
+\hline
+\end{tabular}
+\end{center}
+Add each of these identities over the $N_i$ points $j$ of type $i$. For
+every admissible type $i$ and every line $(\varphi,\rho)$ of the table
+this gives
+\begin{equation}
+\sum_{i',t}\varphi\cdot Z_{i,i',t}=\rho\cdot N_i , \tag{8}
+\end{equation}
+where the sum is over the admissible triples with first type $i$.
+
+\section{The computation}
+
+For each of the $102$ graphs $G$ the following is done in exact rational or
+integer arithmetic.
+
+\emph{Step 1.} Compute $H_v^{-1}$, $\beta$ and $S$. If $S<0$, then $G$ is
+excluded by Lemma~3(i). This happens for $72$ graphs.
+
+\emph{Step 2.} Otherwise, list the admissible types and consider the system
+(E1)--(E6) in unknowns $N_i\ge 0$. For $22$ graphs it has no solution.
+
+\emph{Step 3.} For the remaining $8$ graphs, which all have $S>0$, list the
+admissible triples and consider the system (E1)--(E6), (8) in unknowns
+$N_i\ge 0$ and $Z_{i,i',t}\ge 0$, with one unknown for $Z_{i,i',t}$ and
+$Z_{i',i,t}$. In all $8$ cases it has no solution.
+
+That a system $Ax=c$, $x\ge 0$ has no solution is shown as follows. The data
+contain an integer vector $y$ with $A\T y\le 0$ in every coordinate and
+$c\T y>0$. A solution $x\ge 0$ would give
+$0<c\T y=x\T A\T y\le 0$, see e.g.~\cite[Section 5.8]{BV}. The program
+builds $A$ and $c$ from the formulas of Sections 1--4 and checks these two
+properties of $y$ in integer arithmetic.
+
+The completeness of the list of $102$ graphs is checked as follows. For
+$D=0,\dots,5$ the program runs through all partitions of the $2D$ endpoints
+of $D$ labelled edges into vertices such that no edge becomes a loop (there
+are $1,1,7,87,1657,43833$ of them), and verifies that each resulting
+multigraph is isomorphic to one in the list. Every multigraph with $D$
+edges and no isolated vertex arises in this way: label its edges and their
+endpoints, and put the endpoints at the same vertex into one part.
+
+So no graph is the defect graph of a code with $27$ words, and the Theorem
+follows. For the $8$ graphs of Step~3 the sizes are as follows; the graphs
+are numbered as in the data files, and the last
+two columns give the value of $c\T y$ in the two sets of data described in
+Section~7.
+\begin{center}
+\begin{tabular}{rrrrr}
+\hline
+Graph & Admissible types & Unknowns $Z$ & $c\T y$, first set & $c\T y$, second set\\
+\hline
+0 & 3 & 11 & 380100 & 15900 \\
+1 & 11 & 88 & 10166280956550 & 101015500 \\
+2 & 36 & 775 & 17332892502687 & 172741660 \\
+3 & 8 & 56 & 17332892538832 & 172678000 \\
+4 & 16 & 198 & 17332892475776 & 172725640 \\
+10 & 13 & 114 & 24491570217444 & 244335340 \\
+11 & 25 & 437 & 27158486349294 & 271010145 \\
+12 & 25 & 432 & 24491570206131 & 244342655 \\
+\hline
+\end{tabular}
+\end{center}
+
+\section{An example: the graph without edges}
+
+Here $D=0$, $v=0$, $u=27$, $H=32\,I$, $\beta=\frac3{16}\one$ and
+$S=32-36\cdot\frac{27}{32}=\frac{13}8$. A type is a number $a$, the number
+of words on the point, and $e_a=(6a-65)/16$. The condition $P_{jj}\le1$
+reads $\frac{27}{32}+\frac{(6a-65)^2}{416}\le 1$, that is,
+$(6a-65)^2\le 65$, so $a\in\{10,11,12\}$; these values also satisfy (4).
+The equations (E1)--(E3) are
+\[
+N_{10}+N_{11}+N_{12}=32,\quad 10N_{10}+11N_{11}+12N_{12}=351,\quad
+45N_{10}+55N_{11}+66N_{12}=1755,
+\]
+with the unique solution $N_{10}=6$, $N_{11}=21$, $N_{12}=5$. Evaluating (7)
+shows that the overlap of two points with $a$ and $a'$ words on them is
+restricted as follows.
+\begin{center}
+\begin{tabular}{lcccccc}
+\hline
+$(a,a')$ & $(10,10)$ & $(10,11)$ & $(10,12)$ & $(11,11)$ & $(11,12)$ & $(12,12)$\\
+overlap $t$ & $2,3$ & $3,4$ & $5$ & $3,4,5$ & $4,5$ & $4$ \\
+\hline
+\end{tabular}
+\end{center}
+Fix a point $j$ with $12$ words on it. Among the other $31$ points, six have
+$10$ words on them, $21$ have $11$, and four have $12$; their overlaps with
+$j$ are $5$; $4$ or $5$; and $4$. By the second line of the table in
+Section~4 the overlaps add up to $12\cdot12=144$. So exactly $14$ of the
+$21$ points have overlap $5$. Then
+$\sum\binom t2=20\binom52+11\binom42=266$, but by the fourth line of that
+table this sum is $4\binom{12}2=264$. So the graph without edges is
+excluded.
+
+\section{Files}
+
+The repository \texttt{github.com/wille614/cw-code-upper-bounds} contains
+the list of graphs and, for every graph, the data used in Section~5, in two
+independent sets. Each set has its own checking program, with different
+implementations of the exact matrix inverse and of the isomorphism test.
+\begin{center}
+\begin{tabular}{ll}
+First set: & \texttt{certificates/A32\_16\_13\_first.json},\quad
+ \texttt{checks/projection\_first.py}\\
+Second set: & \texttt{certificates/A32\_16\_13\_second.json},\quad
+ \texttt{checks/projection\_second.py}
+\end{tabular}
+\end{center}
+The command \texttt{python verify.py 32 16 13} runs both.
+
+In the first set the types are ordered by $b$ read as a binary number
+($b_k$ being bit $k$), then by $a$; in the second set $b$ is ordered
+lexicographically, then $a$. In both, the pairs $k<l$ are in lexicographic
+order, and the equations are (E1)--(E6) in this order, followed, for each
+admissible type $i$, by the equations (8) in the order of the table of
+Section~4, written as $\sum\varphi\cdot Z-\rho\cdot N_i=0$.
+
+\paragraph{Remark.}
+Bounds from the integrality of column weights, as in Lemma~1, are used
+in~\cite[Theorem 17]{BBMOS}.
+
+\begin{thebibliography}{9}\small
+\bibitem{BBMOS} M. R. Best, A. E. Brouwer, F. J. MacWilliams, A. M. Odlyzko
+and N. J. A. Sloane, Bounds for binary codes of length less than 25,
+\emph{IEEE Trans. Inform. Theory} \textbf{24} (1978) 81--93.
+\bibitem{BV} S. Boyd and L. Vandenberghe, \emph{Convex Optimization},
+Cambridge University Press, 2004.
+\bibitem{Btab} A. E. Brouwer, Bounds for binary constant weight codes,
+\texttt{https://aeb.win.tue.nl/codes/Andw.html}.
+\end{thebibliography}
+\end{document}

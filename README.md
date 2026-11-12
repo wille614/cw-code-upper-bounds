@@ -7,8 +7,12 @@ consequences of published bounds. Start with [UPDATE.md](UPDATE.md),
 whose opening list is ready to copy into a table update. The four groups
 are exact values; A(21,8,9); Two-dimensional tables "Bounds on A(n,d,w)";
 and Lists "Values of A(n,d,w)" for n >= 29. The self-contained
-mathematical notes are in [notes/](notes/). The packing proof is available in
-[Markdown](notes/packing.md) and [plain text](notes/packing.txt).
+mathematical notes are in [notes/](notes/). The typeset proofs cover
+[the packing bound](notes/packing.pdf), [A(32,16,13) ≤ 26](notes/A32_16_13.pdf),
+and [A(18,6,6) ≤ 183](notes/A18_6_6.pdf). The packing note is also available
+in [Markdown](notes/packing.md) and [plain text](notes/packing.txt).
+The [A(18,6,6) reconstruction guide](reconstruction/A18_6_6/README.md)
+explains how to reproduce the model coefficients from their definitions.
 
 ## Verification
 

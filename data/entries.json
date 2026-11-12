@@ -113,10 +113,11 @@
       ]
     },
     "method": "A4 with local packing and valid counting inequalities",
-    "note": "notes/A18_6_6.md",
+    "note": "notes/A18_6_6.pdf",
     "large": true,
     "evidence": [
-      "notes/A18_6_6.md",
+      "notes/A18_6_6.pdf",
+      "reconstruction/A18_6_6/README.md",
       "attachments/A18_6_6_certificate.json.gz",
       "attachments/A18_6_6_model.json.gz"
     ]
@@ -143,9 +144,9 @@
       ]
     },
     "method": "102 defect graphs; two sets of integer separation certificates",
-    "note": "notes/A32_16_13.md",
+    "note": "notes/A32_16_13.pdf",
     "evidence": [
-      "notes/A32_16_13.md",
+      "notes/A32_16_13.pdf",
       "certificates/A32_16_13_first.json",
       "certificates/A32_16_13_second.json"
     ]
@@ -172,9 +173,9 @@
       ]
     },
     "method": "Divisible-leave lemma with t=4",
-    "note": "notes/packing.md",
+    "note": "notes/packing.pdf",
     "evidence": [
-      "notes/packing.md"
+      "notes/packing.pdf"
     ]
   },
   {
@@ -208,7 +209,7 @@
     "premise": 499,
     "evidence": [
       "notes/corollaries.md",
-      "notes/packing.md"
+      "notes/packing.pdf"
     ]
   },
   {
@@ -947,9 +948,9 @@
       ]
     },
     "method": "Divisible-leave lemma with t=4",
-    "note": "notes/packing.md",
+    "note": "notes/packing.pdf",
     "evidence": [
-      "notes/packing.md"
+      "notes/packing.pdf"
     ]
   },
   {

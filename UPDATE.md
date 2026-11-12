@@ -85,10 +85,10 @@ The per-entry seconds below are the measured checks inside the complete invocati
 
 | Parameters | Current table cell | New endpoint/value | Method | Evidence | Command | Measured seconds; memory reference |
 |---|---|---|---|---|---|---|
-| A(18,6,6) | 133-186 | <= 183 | A4 with local packing and valid counting inequalities | [notes/A18_6_6.md](notes/A18_6_6.md); [attachments/A18_6_6_certificate.json.gz](https://github.com/wille614/cw-code-upper-bounds/releases/download/v2.0.0/A18_6_6_certificate.json.gz); [attachments/A18_6_6_model.json.gz](https://github.com/wille614/cw-code-upper-bounds/releases/download/v2.0.0/A18_6_6_model.json.gz) | `python verify.py 18 6 6` | 21.169 s; <= 13355847680 bytes |
-| A(32,16,13) | 25-27 | <= 26 | 102 defect graphs; two sets of integer separation certificates | [notes/A32_16_13.md](notes/A32_16_13.md); [certificates/A32_16_13_first.json](certificates/A32_16_13_first.json); [certificates/A32_16_13_second.json](certificates/A32_16_13_second.json) | `python verify.py 32 16 13` | 4.992 s; <= 22855680 bytes |
-| A(27,8,7) | 303-500 | <= 499 | Divisible-leave lemma with t=4 | [notes/packing.md](notes/packing.md) | `python verify.py 27 8 7` | 0.000 s; <= 22855680 bytes |
-| A(28,8,8) | 1057-1750 | <= 1746 | Johnson from 499 | [notes/corollaries.md](notes/corollaries.md); [notes/packing.md](notes/packing.md) | `python verify.py 28 8 8` | 0.000 s; <= 22855680 bytes |
+| A(18,6,6) | 133-186 | <= 183 | A4 with local packing and valid counting inequalities | [notes/A18_6_6.pdf](notes/A18_6_6.pdf); [model reconstruction](reconstruction/A18_6_6/README.md); [attachments/A18_6_6_certificate.json.gz](https://github.com/wille614/cw-code-upper-bounds/releases/download/v2.0.0/A18_6_6_certificate.json.gz); [attachments/A18_6_6_model.json.gz](https://github.com/wille614/cw-code-upper-bounds/releases/download/v2.0.0/A18_6_6_model.json.gz) | `python verify.py 18 6 6` | 21.169 s; <= 13355847680 bytes |
+| A(32,16,13) | 25-27 | <= 26 | 102 defect graphs; two sets of integer separation certificates | [notes/A32_16_13.pdf](notes/A32_16_13.pdf); [certificates/A32_16_13_first.json](certificates/A32_16_13_first.json); [certificates/A32_16_13_second.json](certificates/A32_16_13_second.json) | `python verify.py 32 16 13` | 4.992 s; <= 22855680 bytes |
+| A(27,8,7) | 303-500 | <= 499 | Divisible-leave lemma with t=4 | [notes/packing.pdf](notes/packing.pdf) | `python verify.py 27 8 7` | 0.000 s; <= 22855680 bytes |
+| A(28,8,8) | 1057-1750 | <= 1746 | Johnson from 499 | [notes/corollaries.md](notes/corollaries.md); [notes/packing.pdf](notes/packing.pdf) | `python verify.py 28 8 8` | 0.000 s; <= 22855680 bytes |
 | A(31,10,7) | 62-109 | <= 106 | Delsarte inequalities plus a distance-shell bound | [notes/linear_programming.md](notes/linear_programming.md); [certificates/A31_10_7_lp.json](certificates/A31_10_7_lp.json); [data/shell_bounds.json](data/shell_bounds.json) | `python verify.py 31 10 7` | 0.001 s; <= 22855680 bytes |
 | A(29,6,5) | 333-364 | <= 362 | Javadi–Poorhadi–Fallah, preprint Theorem 13 | [notes/corollaries.md](notes/corollaries.md) | `python verify.py 29 6 5` | 0.000 s; <= 22855680 bytes |
 | A(29,6,8) | 8148-... | <= 16965 | Johnson from the preceding length | [notes/corollaries.md](notes/corollaries.md) | `python verify.py 29 6 8` | 0.000 s; <= 22855680 bytes |
@@ -112,7 +112,7 @@ The per-entry seconds below are the measured checks inside the complete invocati
 
 | Parameters | Current table cell | New endpoint/value | Method | Evidence | Command | Measured seconds; memory reference |
 |---|---|---|---|---|---|---|
-| A(47,8,7) | 2517-5095 | <= 5094 | Divisible-leave lemma with t=4 | [notes/packing.md](notes/packing.md) | `python verify.py 47 8 7` | 0.000 s; <= 22855680 bytes |
+| A(47,8,7) | 2517-5095 | <= 5094 | Divisible-leave lemma with t=4 | [notes/packing.pdf](notes/packing.pdf) | `python verify.py 47 8 7` | 0.000 s; <= 22855680 bytes |
 | A(33,10,7) | 72-150 | <= 136 | Delsarte inequalities plus a distance-shell bound | [notes/linear_programming.md](notes/linear_programming.md); [certificates/A33_10_7_lp.json](certificates/A33_10_7_lp.json); [data/shell_bounds.json](data/shell_bounds.json) | `python verify.py 33 10 7` | 0.001 s; <= 22855680 bytes |
 | A(34,10,8) | 181-637 | <= 578 | Johnson from 136 | [notes/corollaries.md](notes/corollaries.md) | `python verify.py 34 10 8` | 0.001 s; <= 22855680 bytes |
 | A(38,6,5) | 714-842 | <= 840 | Javadi–Poorhadi–Fallah, preprint Theorem 13 | [notes/corollaries.md](notes/corollaries.md) | `python verify.py 38 6 5` | 0.000 s; <= 22855680 bytes |

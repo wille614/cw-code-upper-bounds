@@ -1,0 +1,176 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.4cm]{geometry}
+\newtheorem*{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\emergencystretch=1.5em
+\title{\large\bfseries A bound for $t$-$(v,k,1)$ packings with $t\ge 3$}
+\author{Jiang Chang}
+\date{November 2026}
+\begin{document}
+\maketitle
+
+\paragraph{Notation.}
+Throughout, $v\ge k\ge t\ge 2$ are integers, and $V$ is a set of $v$ points.
+Put $Q=\binom{k}{t}$ and $b=\binom{k-1}{t-1}$, so that $kb=tQ$.
+
+A \emph{$t$-$(v,k,1)$ packing} is a collection $P$ of $k$-subsets of $V$
+(\emph{blocks}) such that every $t$-subset of $V$ lies in at most one block.
+Two blocks then meet in at most $t-1$ points, that is, they are at Hamming
+distance at least $2(k-t+1)$. So the maximum of $\abs{P}$ is
+$A(v,2(k-t+1),k)$, where $A(n,d,w)$ is the maximum size of a binary code of
+length $n$, constant weight $w$ and minimum distance at least $d$.
+
+The \emph{leave} of $P$ is the $t$-uniform hypergraph $L$ on $V$ whose edges
+are the $t$-subsets of $V$ that lie in no block.
+
+\begin{theorem}
+Let $t\ge 3$. Suppose that $\binom{k-s}{t-s}$ divides $\binom{v-s}{t-s}$ for
+$s=1,\dots,t-1$, and that $\binom{k}{t}$ does not divide $\binom{v}{t}$. Then
+\[
+\abs{P}\;\le\;\left\lfloor \binom{v}{t}\Big/\binom{k}{t}\right\rfloor-2 .
+\]
+\end{theorem}
+
+\paragraph{Examples.}
+Let $t=4$ and $k=7$, so that $\binom63=20$, $\binom52=10$, $\binom41=4$ and
+$Q=\binom74=35$.
+
+For $v=27$: $\binom{26}{3}=2600=130\cdot 20$, $\binom{25}{2}=300=30\cdot 10$,
+$\binom{24}{1}=24=6\cdot 4$, and $\binom{27}{4}=17550=501\cdot 35+15$.
+Hence $A(27,8,7)\le 499$.
+
+For $v=47$: $\binom{46}{3}=15180=759\cdot 20$, $\binom{45}{2}=990=99\cdot 10$,
+$\binom{44}{1}=44=11\cdot 4$, and $\binom{47}{4}=178365=5096\cdot 35+5$.
+Hence $A(47,8,7)\le 5094$.
+
+\medskip
+The reason is this. In the leave, the number of edges on a set of $s$
+points, $1\le s\le t-1$, is divisible as it is in a complete hypergraph on
+$k$ points. A hypergraph with this property is empty, or complete on $k$
+points, or has at least $2Q$ edges.
+
+\paragraph{1. The degrees of the leave.}
+For a set $S$ of points, $\deg(S)$ is the number of edges containing $S$.
+Let $1\le\abs{S}=s\le t-1$. There are $\binom{v-s}{t-s}$ $t$-subsets of $V$
+that contain $S$. A block containing $S$ contains $\binom{k-s}{t-s}$ of them,
+and no $t$-subset lies in two blocks. So in the leave
+\[
+\deg(S)=\binom{v-s}{t-s}-m\binom{k-s}{t-s},
+\]
+where $m$ is the number of blocks containing $S$. By assumption this is
+divisible by $\binom{k-s}{t-s}$. So the leave has the property
+\begin{itemize}
+\item[(D)] $\deg(S)$ is divisible by $\binom{k-s}{t-s}$ whenever
+$1\le\abs{S}=s\le t-1$.
+\end{itemize}
+Each block contains $Q$ $t$-subsets, and no $t$-subset lies in two blocks.
+So the leave has $e=\binom{v}{t}-\abs{P}\,Q$ edges.
+
+\paragraph{2. Hypergraphs with property (D).}
+
+\begin{lemma}
+Let $k\ge t\ge 2$, and let $L$ be a $t$-uniform hypergraph without repeated
+edges, with $e$ edges, satisfying {\rm (D)}. Then every point lies on at most
+$te/k$ edges. If $e>0$ then $e\ge Q$, and if $e=Q$ then $L$ is the complete
+$t$-uniform hypergraph on $k$ points (and isolated points).
+\end{lemma}
+
+\begin{proof}
+Write $d(x)=\deg(\{x\})$. By (D) it is a multiple of $b$. The sum of $d(x)$
+over all points is $te$. We show $d(x)\le te/k$ by induction on $t$.
+
+\emph{The case $t=2$.} $L$ is a graph in which every degree is a multiple of
+$k-1$. Let $x$ have degree $D>0$. Each neighbour of $x$ has positive degree,
+hence degree at least $k-1$. The degrees of $x$ and of its $D$ neighbours add
+up to at least $D+D(k-1)=kD$, and to at most $2e$. So $D\le 2e/k$.
+
+\emph{The case $t\ge 3$.} For a point $u$, let $L_u$ be the $(t-1)$-uniform
+hypergraph whose edges are the sets $E\setminus\{u\}$, for the edges $E$ of
+$L$ on $u$. It has $d(u)$ edges, none repeated. If $S$ does not contain $u$
+and $1\le\abs{S}=s\le t-2$, then $S$ lies on $\deg(S\cup\{u\})$ edges of
+$L_u$, and by (D) this number is divisible by $\binom{k-s-1}{t-s-1}$. So
+$L_u$ satisfies (D) with $t-1$, $k-1$ instead of $t$, $k$. By induction, a
+point $y$ other than $u$ lies on at most $(t-1)\,d(u)/(k-1)$ edges of $L_u$:
+\begin{equation}
+\deg(\{u,y\})\le \frac{(t-1)\,d(u)}{k-1}. \tag{1}
+\end{equation}
+Fix $y$ and add (1) over all $u$ other than $y$. On the left, each edge on
+$y$ is counted $t-1$ times, so the sum is $(t-1)\,d(y)$. On the right, the
+sum of $d(u)$ over $u$ other than $y$ is $te-d(y)$. Hence
+$(k-1)\,d(y)\le te-d(y)$, that is, $d(y)\le te/k$.
+
+\emph{The last two statements.} If $e>0$, some point has $d(x)>0$, hence
+$d(x)\ge b$, and $e\ge kb/t=Q$. If $e=Q$, then $d(x)\le tQ/k=b$ for all $x$,
+so every point on an edge has $d(x)=b$, and there are $te/b=k$ such points.
+The $Q$ edges are distinct $t$-subsets of these $k$ points, and there are
+only $\binom{k}{t}=Q$ such subsets. So every one is an edge.
+\end{proof}
+
+\begin{lemma}
+Let $t\ge 3$, and let $L$ be as in Lemma~1. Then $e=0$, $e=Q$, or $e\ge 2Q$.
+\end{lemma}
+
+\begin{proof}
+Suppose $0<e<2Q$. For a point $x$ on an edge, let $N(x)$ be the set of the
+other points that lie on an edge with $x$.
+
+(a) Let $x$ be on an edge. By Lemma~1, $d(x)\le te/k<2b$, so $d(x)=b$. Then
+$L_x$ has $b=\binom{k-1}{t-1}$ edges and satisfies (D) with $t-1\ge 2$ and
+$k-1$. By the last part of Lemma~1, $L_x$ is the complete $(t-1)$-uniform
+hypergraph on $k-1$ points. These points are $N(x)$. So $\abs{N(x)}=k-1$,
+and every $(t-1)$-subset of $N(x)$, with $x$ added, is an edge.
+
+(b) Let $x$ be on an edge and $W=N(x)\cup\{x\}$. Then
+$N(y)=W\setminus\{y\}$ for every $y\in W$. For $y=x$ this is the definition
+of $W$. Let $y\in N(x)$. Every other point $z$ of $W$ is on an edge with
+$y$: if $z=x$, by the definition of $N(x)$; if $z\in N(x)$, take a
+$(t-1)$-subset of $N(x)$ containing $y$ and $z$ (possible, as
+$2\le t-1\le k-1$) and add $x$. So $N(y)$ contains $W\setminus\{y\}$. By (a)
+both have $k-1$ points, so they are equal.
+
+(c) By (b), an edge on a point $y$ of $W$ lies inside $W$, since its other
+points are in $N(y)$. And every $t$-subset $T$ of $W$ is an edge: take
+$y\in T$; then $T\setminus\{y\}$ is a $(t-1)$-subset of $N(y)$, and by (a)
+$T$ is an edge. So $W$ carries a complete hypergraph with $Q$ edges, and no
+other edge meets $W$.
+
+(d) If some point $x'$ on an edge is outside $W$, form
+$W'=N(x')\cup\{x'\}$ in the same way. If $W'$ met $W$, the complete
+hypergraph on $W'$ would have an edge containing $x'$ and a point of $W$,
+against (c). So $W'$ is disjoint from $W$. Continuing, the edges of $L$ fall
+into complete hypergraphs on disjoint $k$-sets, each with $Q$ edges. Since
+$0<e<2Q$ there is exactly one, and $e=Q$.
+\end{proof}
+
+\begin{proof}[Proof of the Theorem]
+By Section~1, the leave satisfies (D) and has $e=\binom{v}{t}-\abs{P}\,Q$
+edges. Let $r$ be the remainder of $\binom{v}{t}$ on division by $Q$; by
+assumption $1\le r\le Q-1$. Then $e=aQ+r$ for an integer $a$, so $e$ is
+neither $0$ nor $Q$. By Lemma~2, $e\ge 2Q$, hence $a\ge 2$ and
+$e\ge 2Q+r$. Therefore
+\[
+\abs{P}=\frac{\binom{v}{t}-e}{Q}\;\le\;\frac{\binom{v}{t}-r}{Q}-2
+=\left\lfloor \binom{v}{t}\Big/Q\right\rfloor-2 . \qedhere
+\]
+\end{proof}
+
+\paragraph{Remarks.}
+Lemma~2 fails for $t=2$: the $4$-cycle has all degrees divisible by $2$
+(here $k=3$) and has $4$ edges, between $Q=3$ and $2Q=6$.
+
+For $t=3$, Javadi, Poorhadi and Fallah~\cite{JPF} prove the bound with $-3$
+instead of $-2$ under the same conditions.
+
+The argument is close to pages 89--91 of~\cite{B79}.
+
+\begin{thebibliography}{9}\small
+\bibitem{B79} A. E. Brouwer, Packing and covering of $\binom{k}{t}$-sets,
+in: A. Schrijver (ed.), \emph{Packing and Covering in Combinatorics},
+Math. Centre Tracts 106, Amsterdam, 1979, pp.~89--97.
+\bibitem{JPF} R. Javadi, E. Poorhadi and F. Fallah, Packing cliques in
+$3$-uniform hypergraphs, \emph{J. Combin. Des.} \textbf{28} (2020) 580--603;
+Theorem~13 in arXiv:1905.10807.
+\end{thebibliography}
+\end{document}

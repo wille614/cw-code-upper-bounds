@@ -1,0 +1,523 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.4cm]{geometry}
+\newtheorem*{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\emergencystretch=1.5em
+\title{\large\bfseries The bound $A(18,6,6)\le 183$}
+\author{Jiang Chang}
+\date{November 2026}
+\begin{document}
+\maketitle
+
+\paragraph{Notation.}
+$A(n,d,w)$ is the maximum size of a binary code of length $n$, constant
+weight $w$ and minimum distance at least $d$. Throughout, $n=18$, $d=6$ and
+$w=6$. A \emph{word} is a $6$-subset of $[18]=\{1,\dots,18\}$; there are
+$V=\binom{18}6=18564$ words. Two words $u,u'$ are at distance
+$2(6-\abs{u\cap u'})$. So a \emph{code} is a set of words any two of which
+meet in at most $3$ points. A set of words is called \emph{compatible} if it
+is a code.
+
+\begin{theorem}
+$A(18,6,6)\le 183$.
+\end{theorem}
+
+The bounds known before were $133\le A(18,6,6)\le 186$, see~\cite{Btab}.
+The upper bound $186$ follows from $A(17,6,6)\le 124$ (\"Osterg{\aa}rd
+\cite{Ost}) and the Johnson bound $A(18,6,6)\le\lfloor 18\cdot 124/12\rfloor$.
+
+\paragraph{Outline.}
+The proof is a semidefinite programming bound. Sections 1--6 give a list of
+linear and semidefinite constraints on certain numbers $z(S)$ attached to a
+code, and prove that every code satisfies them. Section~7 describes a
+certificate, in rational numbers, that these constraints imply $\abs C<184$;
+it is checked by computer in exact arithmetic. The constraints are those of
+the four-point bound of Polak~\cite{Polak} together with further
+constraints obtained by counting. Adding such constraints to a bound of
+this kind goes back to~\cite{BB} and~\cite[Theorem 22]{BBMOS}. Among them
+are $23$ inequalities that come from the leaves of packings of $4$-sets
+(Sections 3--5); such leaves are classical, see~\cite{B79}.
+
+\paragraph{What is proved, and how it is checked.}
+The Theorem rests on three things: (i) the constraints are valid for every
+code, which is proved in Sections 1--6; (ii) the certificate of Section~7,
+which is verified by the public program in exact arithmetic; (iii) the
+$16387$ matrices in the public model file are correct instances of these
+constraints. For (iii), every matrix in the model carries a label naming
+its family and its parameters, and a written specification states how the
+coefficients follow from the label. All matrices have been computed again
+from these definitions, in exact integer arithmetic, by programs written
+independently of the program that generated the model, and compared with
+the model coefficient by coefficient: the $23$ inequalities of Section~5 by
+the public program; the $269$ matrices of Section~2, in the form reduced
+by symmetry, by one reconstruction; and the remaining $16095$ constraints,
+namely the $941$ inequalities $z(S)\ge 0$ and the $15154$ constraints of
+Section~6, by another. Together these
+account for all $2074973$ coefficients in the model. See Section~7 for the
+files.
+
+\section{The numbers $z(S)$ and two principles}
+
+For a word $u$ and a code $C$ put $X_u(C)=1$ if $u\in C$, and $X_u(C)=0$
+otherwise. For a finite set $S$ of words put $X_S=\prod_{u\in S}X_u$, with
+$X_\emptyset=1$. Then $X_SX_{S'}=X_{S\cup S'}$, and $X_S$ vanishes on every
+code if $S$ is not compatible. A \emph{polynomial} is a real linear
+combination $p=\sum_S p_SX_S$; its \emph{degree} is the largest $\abs S$
+with $p_S\ne 0$. It is a function on the set of all codes.
+
+Let $C$ be a code. For a set $S$ of at most four words put
+\[
+z(S)=\frac{V}{18!}\sum_{g}X_S(gC),
+\]
+where $g$ runs over the permutations of $[18]$. Then $z(S)$ depends only on
+the orbit of $S$ under these permutations, and
+\[
+z(\emptyset)=V,\qquad z(\{u\})=\abs C,\qquad 0\le z(S)\le V,\qquad
+z(S)=0\ \text{if $S$ is not compatible.}
+\]
+(For the second: the average of $X_u(gC)$ over $g$ is $\abs C/V$.)
+
+\begin{itemize}
+\item[(A)] Let $p$ be a polynomial of degree at most $4$ such that
+$p(C')\ge 0$ for every code $C'$. Then $\sum_Sp_S\,z(S)\ge 0$.
+\item[(B)] Let $h$ be a polynomial with $h(C')\ge 0$ for every code $C'$,
+and let $f_1,\dots,f_r$ be polynomials such that every product $hf_if_j$
+has degree at most $4$. Then the $r\times r$ matrix with entries
+$\sum_S(hf_if_j)_S\,z(S)$ is positive semidefinite.
+\end{itemize}
+Indeed, $\sum_Sp_Sz(S)=\frac{V}{18!}\sum_gp(gC)$, and every $gC$ is a code.
+For (B), the quadratic form of the matrix at a vector $a$ is
+$\frac V{18!}\sum_g h(gC)\bigl(\sum_ia_if_i(gC)\bigr)^2\ge 0$. Statement (B)
+is the principle of moment and localizing matrices~\cite{Las}.
+
+The unknowns of the semidefinite program are the numbers $z(\omega)$, one
+for each orbit $\omega$ of compatible sets of one to four words; there are
+$941$ of them. Every constraint below is an instance of (A) or (B). A
+principal submatrix of a positive semidefinite matrix, and its restriction
+to an invariant subspace of a group of symmetries, are again positive
+semidefinite; this is used to reduce the sizes of the matrices.
+
+\section{The constraints of the four-point bound}
+
+Let $D$ be a compatible set of words, and consider the sets $S\supseteq D$
+with $\abs D+2\abs{S\setminus D}\le 4$. For two such sets $S,S'$ we have
+$X_DX_SX_{S'}=X_{S\cup S'}$, of degree at most $4$. By (B), with $h=X_D$ and
+the polynomials $X_S$, the matrix with entries $z(S\cup S')$ is positive
+semidefinite. These matrices, and the inequalities $z(S)\ge 0$, are the
+constraints of~\cite{Polak}.
+
+\section{Local packings and their leaves}
+
+For disjoint sets $R,Z\subseteq[18]$ the \emph{interval} $[R,Z]$ is the set
+of words $u$ with $R\subseteq u$ and $u\cap Z=\emptyset$. Deleting the
+points of $R$ and $Z$ turns the words of a code in $[R,Z]$ into subsets of
+size $6-\abs R$ of a set of $18-\abs R-\abs Z$ points, any two at distance
+at least $6$.
+
+In this section and the next two, $\abs R=2$ and $\abs Z=b$. Let
+$Y=[18]\setminus(R\cup Z)$ and $m=\abs Y=16-b$. For a code $C$, the sets
+$u\setminus R$ with $u\in C\cap[R,Z]$ are $4$-subsets of $Y$, called
+\emph{blocks}. Two blocks have at most one common point, because the two
+words have at most three. So the blocks form a \emph{packing} $P$: every
+pair of points of $Y$ lies in at most one block. For a $4$-subset $B$ of
+$Y$ we write $X_B$ for $X_{R\cup B}$; a set of $4$-subsets of $Y$ is
+compatible if it is a packing.
+
+Assume that $m\ge 4$ and $m\equiv 1$ or $4\pmod{12}$, that is, $b\in\{0,3,12\}$ and
+$m\in\{16,13,4\}$. Put
+\[
+K=\frac{m(m-1)}{12},\qquad N=\abs P,\qquad t=K-N .
+\]
+The \emph{leave} $L$ of $P$ is the graph on $Y$ whose edges are the pairs
+that lie in no block. A point in $r$ blocks has degree $m-1-3r$ in $L$, and
+$L$ has $\binom m2-6N=6t$ edges. So $t$ is a nonnegative integer, and
+every degree of $L$ is divisible by $3$.
+
+\begin{lemma}
+If $t=0$ then $L$ has no edge. If $t=1$ then $L$ is a complete graph on
+four points, together with isolated points.
+\end{lemma}
+
+\begin{proof}
+Let $t=1$. Then $L$ has $6$ edges and degree sum $12$. Every non-isolated
+point has degree at least $3$, so there are at most four of them; and $6$
+edges need at least four points.
+\end{proof}
+
+Let $T$ be the number of triangles of $L$. Let $I$ be the number of
+unordered pairs of blocks with exactly one common point, and $Q$ the number
+of unordered triples of blocks that pairwise have exactly one common point
+and have no point common to all three.
+
+\begin{lemma}
+$T=\binom m3-(6m-20)\,N+9I-Q$.
+\end{lemma}
+
+\begin{proof}
+A triple of points is a triangle of $L$ if none of its three pairs lies in a
+block. By inclusion and exclusion, $T=\binom m3-\sigma_1+\sigma_2-\sigma_3$,
+where $\sigma_i$ counts the choices of a triple and of $i$ of its pairs that
+all lie in blocks. There are $6N$ pairs in blocks, each in $m-2$ triples, so
+$\sigma_1=6(m-2)N$. Two pairs of a triple lie either in the same block,
+which then contains the triple ($3\cdot 4N$ choices), or in two blocks with
+exactly one common point, the common point of the two pairs ($3\cdot3$
+choices for each such pair of blocks); so $\sigma_2=12N+9I$. If all three
+pairs lie in blocks, the blocks are either the same ($4N$ triples) or three
+different ones, as counted by $Q$; two of the pairs cannot lie in one block
+and the third in another, since the first block contains the triple and the
+third pair would lie in two blocks. Three blocks as in the definition of
+$Q$ meet pairwise in three different points, which form one such triple.
+So $\sigma_3=4N+Q$.
+\end{proof}
+
+\begin{lemma}
+$F:=T+4t(t-2)\ge 0$ for every packing $P$.
+\end{lemma}
+
+\begin{proof}
+If $t=0$ then $T=0$ and $F=0$. If $t=1$ then $T=4$ by Lemma~1, and $F=0$.
+If $t\ge 2$ both terms are nonnegative.
+\end{proof}
+
+By Lemma~2, and since $N=\sum_BX_B$ over all $4$-subsets $B$ of $Y$ and
+$N^2=N+2\sum_{\{B,B'\}}X_BX_{B'}$, the function $F$ is a polynomial of
+degree at most $3$ in the indicators of the blocks, $F=\sum_Sf(S)X_S$ over
+the compatible sets $S$ of blocks, with
+\begin{center}
+\begin{tabular}{ll}
+\hline
+Set $S$ of blocks & $f(S)$ \\
+\hline
+empty & $\binom m3+4K(K-2)$ \\
+one block & $32-8K-6m$ \\
+two blocks & $17$ if they have one common point, $8$ if they are disjoint\\
+three blocks & $-1$ if they are as in the definition of $Q$, otherwise $0$\\
+four or more blocks & $0$\\
+\hline
+\end{tabular}
+\end{center}
+The following products are also nonnegative on every code, and have degree
+at most $4$:
+\[
+N\!F,\qquad tF=(K-N)F,\qquad H_{j,h}F ,
+\]
+where, for $0\le j\le 2$ and $0\le h\le b$, $H_{j,h}$ is the number of
+words $u$ of the code with $\abs{u\cap R}=j$ and $\abs{u\cap Z}=h$. Since
+$H_{2,0}=N$, the pair $(j,h)=(2,0)$ is omitted. The coefficients of $N\!F$
+are $g(S)=\abs S\,f(S)+\sum_{B\in S}f(S\setminus\{B\})$, because
+$X_BX_S$ is $X_S$ if $B\in S$ and $X_{S\cup\{B\}}$ otherwise. The
+coefficients of $tF$ are $K\,f(S)-g(S)$.
+
+\section{A lemma on graphs with twelve edges}
+
+A \emph{$4$-cycle} of a graph is a subgraph that is a cycle of length $4$,
+induced or not.
+
+\begin{lemma}
+Let $\Gamma$ be a graph with $12$ edges in which every degree is divisible
+by $3$. Let $T$ be its number of triangles and $C_4$ its number of
+$4$-cycles. Then $T+C_4\ge 4$.
+\end{lemma}
+
+\begin{proof}
+Delete the isolated points; let $s$ points remain. Their degrees are at
+least $3$ and add up to $24$, so $s\le 8$; hence the degrees are at most
+$7$, that is, they are $3$ or $6$. If $s\le 6$, all degrees are at most
+$5$, hence equal to $3$, and their sum is at most $18$. So $s=7$ or $s=8$.
+
+\emph{The case $s=7$.} One point $x$ has degree $6$ and the others have
+degree $3$. Each of the other six points has two neighbours other than $x$,
+so there are six edges not on $x$, and each forms a triangle with $x$.
+Hence $T\ge 6$.
+
+\emph{The case $s=8$.} Every degree is $3$. For two points $x,y$ let
+$c(x,y)$ be the number of their common neighbours. Counting paths of length
+two; triangles, by their edges; and $4$-cycles, by their two pairs of
+opposite points, gives
+\[
+\sum_{\{x,y\}}c(x,y)=8\binom32=24,\qquad
+\sum_{\{x,y\}\ \text{an edge}}c(x,y)=3T,\qquad
+\sum_{\{x,y\}}\binom{c(x,y)}2=2C_4 .
+\]
+There are $\binom82-12=16$ pairs that are not edges, and
+$\binom c2\ge c-1$ for every integer $c\ge 0$. Adding this over the
+non-edges gives
+\[
+2C_4\ \ge\ (24-3T)-16=8-3T .
+\]
+So $C_4\ge 4$ if $T=0$, and $C_4\ge 3$ if $T=1$. If $T\ge 4$ there is
+nothing to prove. It remains to consider $T=2$ and $T=3$.
+
+Two triangles with a common point have a common edge, since the common
+point has only three neighbours. Let $xyp$ and $xyq$ be triangles. Then $x$
+and $y$ have no further neighbours. If $p$ and $q$ are adjacent, the four
+points carry four triangles. Otherwise $p$ and $q$ each have one neighbour
+among the other four points. These four points have degree sum $12$, of
+which $2$ is used by the edges to $p$ and $q$; so they carry $5$ edges,
+which form two triangles with a common edge. Again $T\ge 4$.
+
+So if $T\le 3$ the triangles are pairwise disjoint, and there are at most
+two of them, as there are only $8$ points. Let $T=2$, with triangles $A$ and
+$B$ and remaining points $x,y$. A point outside a triangle is adjacent to
+at most one of its points, since otherwise there is a third triangle. So
+$x$ has at most one neighbour in $A$ and at most one in $B$; having three
+neighbours, it is adjacent to $y$ and to exactly one point of $A$, say
+$a$, and one of $B$. In the same way $y$ is adjacent to exactly one point
+$a'$ of $A$. Here $a'\ne a$, since $a$ has only one neighbour outside $A$.
+Now $x,a,a',y$ form a $4$-cycle. There is another one through $B$. So
+$C_4\ge 2$ and $T+C_4\ge 4$.
+\end{proof}
+
+For example, the graph on the points $0,\dots,7$ with edges $\{i,i+1\}$
+and $\{i,i+4\}$, taken modulo $8$, has $T=0$ and $C_4=4$. The case $s=8$ was also confirmed by computer, by listing all
+$19355$ graphs on $8$ given points in which every degree is $3$.
+
+\begin{lemma}
+Let $P$ be a packing as in Section~$3$, and let $\Sigma=T+C_4$ for its
+leave. Then
+\[
+H_2:=\Sigma+5t^2-12t\ \ge 0,\qquad
+H_4:=24\,\Sigma+t(t-3)(t-5)(5t-26)\ \ge 0 .
+\]
+\end{lemma}
+
+\begin{proof}
+If $t=0$ the leave is empty and $\Sigma=0$. If $t=1$ the leave is a complete
+graph on four points, with $4$ triangles and $3$ $4$-cycles, so $\Sigma=7$.
+If $t=2$ the leave has $12$ edges and all degrees divisible by $3$, so
+$\Sigma\ge 4$ by Lemma~4. Always $\Sigma\ge 0$. The values of the two
+polynomials in $t$ are
+\begin{center}
+\begin{tabular}{lcccccc}
+\hline
+$t$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ \\
+\hline
+$5t^2-12t$ & $0$ & $-7$ & $-4$ & $9$ & $32$ & $65$ \\
+$t(t-3)(t-5)(5t-26)$ & $0$ & $-168$ & $-96$ & $0$ & $24$ & $0$ \\
+\hline
+\end{tabular}
+\end{center}
+and both are positive for $t\ge 6$.
+\end{proof}
+
+For a pair $e$ of points of $Y$ let $Y_e=1-\sum_{B\ni e}X_B$. On a packing
+it is $1$ if $e$ is an edge of the leave and $0$ otherwise. So $T$ is the
+sum, over the triangles of the complete graph on $Y$, of the products of
+three $Y_e$, and $C_4$ is the corresponding sum over its $4$-cycles, with
+four factors. Hence $H_2$ and $H_4$ are polynomials of degree at most $4$
+in the indicators of the blocks. Their coefficients are obtained from their
+values: for a compatible set $S$ of at most four blocks,
+\[
+c(S)=\sum_{S'\subseteq S}(-1)^{\abs{S\setminus S'}}\,H(S'),
+\]
+where $H(S')$ is the value of $H_2$ or $H_4$ on the packing $S'$ in the
+same set $Y$. (As $H(P)=\sum_{S\subseteq P}c(S)$ for every packing $P$,
+this is M\"obius inversion on the subsets of $S$; all subsets of a
+compatible set are compatible.)
+
+\section{From one interval to the numbers $z(S)$}
+
+Fix $b$, and let $p_{R,Z}$ be one of the polynomials $F$, $N\!F$, $tF$,
+$H_{j,h}F$, $H_2$, $H_4$ for the interval $[R,Z]$, written in the
+indicators $X_u$ of the words. It is nonnegative on every code. So is the
+sum $p=\sum p_{R,Z}$ over all pairs $(R,Z)$, and by (A)
+\begin{equation}
+\sum_Sp_S\,z(S)\ \ge 0. \tag{1}
+\end{equation}
+The coefficients $p_S$ are found as follows. For a nonempty set $S$ of
+words let $\iota(S)$ be the number of points in all words of $S$, and
+$\upsilon(S)$ the number of points in at least one. Then $S$ lies in
+$\binom{\iota(S)}2\binom{18-\upsilon(S)}b$ intervals (here and below
+$\binom xy=0$ if $y<0$ or $y>x$): $R$ consists of two points lying in all
+words of $S$, and $Z$ of $b$ points lying in none. Any two such choices
+differ by a permutation of the points that fixes every word of $S$, so the
+corresponding sets of blocks have the same coefficients. So for $F$,
+$N\!F$, $tF$, $H_2$ and $H_4$,
+\[
+p_S=c(S)\binom{\iota(S)}2\binom{18-\upsilon(S)}b,\qquad
+p_\emptyset=c(\emptyset)\binom{18}2\binom{16}b ,
+\]
+where $c$ denotes the coefficients found in Sections 3 and 4.
+
+For $H_{j,h}F$, a term arises from a word $u$ counted by $H_{j,h}$ and a
+set $S'$ of at most three words in the interval, with coefficient
+$f(S')$; here $u\notin S'$ because $(j,h)\ne(2,0)$. If $S'$ is not empty,
+let $A$ be the set of points in all words of $S'$ and $B$ the set of points
+in none. The number of intervals containing $S'$ and with
+$\abs{u\cap R}=j$, $\abs{u\cap Z}=h$ is
+\[
+\binom{\abs{A\cap u}}j\binom{\abs{A\setminus u}}{2-j}
+\binom{\abs{B\cap u}}h\binom{\abs{B\setminus u}}{b-h},
+\]
+and if $S'$ is empty it is
+$\binom6j\binom{12}{2-j}\binom{6-j}h\binom{10+j}{b-h}$. The coefficient
+of $X_S$ is the sum, over the words $u\in S$, of $f(S\setminus\{u\})$
+times this number.
+
+Finally (1) is written in the unknowns $z(\omega)$. All sets $S$ in an
+orbit $\omega$ have the same coefficient, so $z(\omega)$ gets the
+coefficient $p_S$ times the size of $\omega$. For a set of $r$ distinct words, numbered in some order, let
+$h_\alpha$ be the number of points whose incidence with the $r$ words is
+the pattern $\alpha\in\{0,1\}^r$, and let $\sigma$ be the number of
+permutations of the $r$ words that preserve all the numbers $h_\alpha$.
+The permutations of the points that map the set to itself number
+$\sigma\prod_\alpha h_\alpha!$, so the orbit has
+$18!/(\sigma\prod_\alpha h_\alpha!)$ elements. The constant term is
+$p_\emptyset V$, as $z(\emptyset)=V$. Each inequality is divided by the
+greatest common divisor of its coefficients.
+
+\paragraph{The $23$ inequalities.}
+\begin{center}
+\begin{tabular}{rrrp{11.2cm}}
+\hline
+$b$ & $m$ & $K$ & Inequalities \\
+\hline
+$0$ & $16$ & $20$ & $F$, $N\!F$, $tF$; $H_{j,h}F$ for $(j,h)=(0,0),(1,0)$;
+ $H_2$, $H_4$: seven inequalities\\
+$3$ & $13$ & $13$ & $F$, $N\!F$, $tF$; $H_{j,h}F$ for the eleven pairs
+ $(j,h)\ne(2,0)$ with $0\le j\le 2$, $0\le h\le 3$; $H_2$, $H_4$: sixteen
+ inequalities\\
+$12$ & $4$ & $1$ & none: all these polynomials vanish identically\\
+\hline
+\end{tabular}
+\end{center}
+For $m=4$ there is at most one block, the leave is complete or empty, and
+$F$, $H_2$, $H_4$ are zero. The same construction for the complements of
+the words (weight $12$) requires $\abs R=8$ to leave blocks of size $4$, so
+that $m\le 10$, and then $m=4$.
+
+\section{The other constraints}
+
+In this section $[R,Z]$ is an arbitrary interval, $k=6-\abs R$,
+$m=18-\abs R-\abs Z$, and $N$ is the number of words of the code in
+$[R,Z]$. Then $\binom Nr=\sum X_S$ over the $r$-sets $S$ of words in
+$[R,Z]$, so a polynomial of degree $r$ in $N$ is a polynomial of degree at most $r$
+in the indicators. The components of the vectors $f$ below are polynomials of
+degree at most $1$: the constant $1$, counts of the words of the code in
+given classes with respect to a fixed partition of the points, and integer
+linear combinations of the indicators $X_u$ that arise when the matrices
+are reduced by symmetry. In each family only products of degree at most
+$4$ are used, and the polynomials or matrices for all intervals with the
+same $\abs R$ and $\abs Z$ are added, as in Section~5. An interval with
+$R=\emptyset$ consists of the words disjoint from $Z$, that is, of the
+words whose complements contain $Z$.
+
+\emph{Sets that meet a code in at most one word.} Let $r\ge 0$, let $E$ be a set of
+$4+2r$ points and let $\mathcal Q$ be the set of words that have at least
+$4+r$ points in $E$. Two words of $\mathcal Q$ have at least
+$2(4+r)-(4+2r)=4$ common points. So a code contains at most one word of
+$\mathcal Q$, and $q=1-\sum_{u\in\mathcal Q}X_u\ge 0$ on every code. The
+constraints are (A) for $X_Dq$ with $\abs D\le 3$, and (B) for $h=X_uq$.
+
+\emph{Intervals with pairwise disjoint blocks.} If $\min(k,m-k)=3$, the
+words in $[R,Z]$, or their complements in $Y$, are pairwise disjoint after
+deleting $R$. If moreover $9\le m<12$, then $N\le 3$, and for
+$j=0,1,2,3$
+\[
+\sum_{r=j}^3(-1)^{r-j}\binom rj\binom Nr
+\]
+is $1$ if $N=j$ and $0$ otherwise. The constraints are (A) for the product
+of $X_u$ and this polynomial.
+
+\emph{Polynomials in $N$.} Let $J(m,k)=1$ if $\min(k,m-k)<3$, and otherwise
+let $J(m,k)$ be the smaller of $\lfloor m\,J(m-1,k-1)/k\rfloor$ and
+$\lfloor m\,J(m-1,k)/(m-k)\rfloor$. The words on a given point, and the words not on it, form codes to which
+induction applies. Counting the pairs (word, point on it) and (word, point
+not on it) then gives $kN\le m\,J(m-1,k-1)$ and $(m-k)N\le m\,J(m-1,k)$,
+so $N\le J(m,k)$. If
+$\pi$ is a real polynomial of degree at most $4$ with $\pi(i)\ge 0$ for
+all integers $0\le i\le J(m,k)$, then $\pi(N)\ge 0$ on every code. The
+constraints are (A) for such $\pi(N)$.
+
+\emph{Matrices from $N$.} For an integer $j$, $(N-j)(N-j-1)\ge 0$, and
+$N(J(m,k)-N)\ge 0$. The constraints are (B) with $h$ one of these.
+
+\emph{The known bound.} Let $M=\sum_uX_u$ be the number of words of the
+code. Then $186-M\ge 0$ on every code. The constraints are (A) for
+$X_D(186-M)$ with $\abs D\le 3$, and (B) for $h=X_u(186-M)$. The number
+$183$ is not used anywhere.
+
+\section{The certificate}
+
+Number the unknowns $z_1,\dots,z_{941}$, with $z_1=z(\{u\})=\abs C$. Each
+constraint has the form: the symmetric matrix
+$F_\beta(z)=F_{\beta,0}+\sum_iz_iF_{\beta,i}$ is positive semidefinite,
+where the $F_{\beta,i}$ are integer matrices; a linear inequality is the
+case of a $1\times 1$ matrix. There are $16387$ such matrices, the largest
+of order $47$. The certificate consists of rational positive semidefinite
+matrices $Y_\beta$ of the same orders. With
+$\langle A,B\rangle=\sum_{i,j}A_{ij}B_{ij}$, put
+\[
+c_0=\sum_\beta\langle F_{\beta,0},Y_\beta\rangle,\qquad
+\rho_i=\sum_\beta\langle F_{\beta,i},Y_\beta\rangle+
+\begin{cases}1&(i=1)\\0&(i\ne1).\end{cases}
+\]
+For every code, $\langle F_\beta(z),Y_\beta\rangle\ge 0$ for all $\beta$,
+as both matrices are positive semidefinite.
+Adding, $c_0-z_1+\sum_i\rho_iz_i\ge 0$. Since $0\le z_i\le V=18564$,
+\[
+\abs C=z_1\ \le\ c_0+18564\sum_i\max(\rho_i,0)=:U .
+\]
+The exact values are
+\begin{align*}
+c_0&=183.97846380536651084584137185081,\\
+18564\textstyle\sum_i\max(\rho_i,0)&=\phantom{00}0.0003964175429246453124659046,\\
+U&=183.97886022290943549115383775541 .
+\end{align*}
+These are rational numbers with denominators dividing $10^{29}$, written
+out in full. As $\abs C$ is an integer and $U<184$, the Theorem follows.
+Bounding the terms $\rho_iz_i$ in this way is a standard device for exact
+certificates, see the appendix of~\cite{BP}.
+
+\paragraph{Files and programs.}
+All files are in the following repository, or attached to its releases.
+\begin{center}
+\begin{tabular}{ll}
+Repository: & \texttt{github.com/wille614/cw-code-upper-bounds}\\
+The matrices $F_{\beta,i}$, with their labels: & \texttt{A18\_6\_6\_model.json.gz}\\
+The matrices $Y_\beta$: & \texttt{A18\_6\_6\_certificate.json.gz}
+\end{tabular}
+\end{center}
+In a constraint, a constant $a$ in
+a polynomial appears in $F_{\beta,0}$ as $aV$, in accordance with
+$z(\emptyset)=V$.
+
+The command \texttt{python verify.py 18 6 6} computes the coefficients of
+the $23$ inequalities of Section~5 again, from direct counts of triangles
+and $4$-cycles and of intervals, and compares them with the model; it
+verifies that every $Y_\beta$ is positive semidefinite, by exact
+elimination in rational arithmetic; and it computes $c_0$, all $\rho_i$ and
+$U$ exactly.
+
+The directory \texttt{reconstruction/A18\_6\_6/} contains the specification
+of the labels and two sets of programs with their reports. One computes
+again the $941$ inequalities $z(S)\ge 0$ and the $15154$ constraints of
+Section~6, the other the $269$ matrices of Section~2 in the form reduced by
+symmetry.
+Each compares its result with the model, coefficient by coefficient.
+
+\begin{thebibliography}{9}\small
+\bibitem{BB} M. R. Best and A. E. Brouwer, The triply shortened binary
+Hamming code is optimal, \emph{Discrete Math.} \textbf{17} (1977) 235--245.
+\bibitem{BBMOS} M. R. Best, A. E. Brouwer, F. J. MacWilliams, A. M. Odlyzko
+and N. J. A. Sloane, Bounds for binary codes of length less than 25,
+\emph{IEEE Trans. Inform. Theory} \textbf{24} (1978) 81--93.
+\bibitem{B79} A. E. Brouwer, Optimal packings of $K_4$'s into a $K_n$,
+\emph{J. Combin. Theory Ser. A} \textbf{26} (1979) 278--297.
+\bibitem{Btab} A. E. Brouwer, Bounds for binary constant weight codes,
+\texttt{https://aeb.win.tue.nl/codes/Andw.html}.
+\bibitem{BP} A. E. Brouwer and S. C. Polak, Uniqueness of codes using
+semidefinite programming, \emph{Des. Codes Cryptogr.} \textbf{87} (2019)
+1881--1895.
+\bibitem{Las} J. B. Lasserre, Global optimization with polynomials and the
+problem of moments, \emph{SIAM J. Optim.} \textbf{11} (2001) 796--817.
+\bibitem{Ost} P. R. J. \"Osterg{\aa}rd, Classification of binary constant
+weight codes, \emph{IEEE Trans. Inform. Theory} \textbf{56} (2010)
+3779--3785.
+\bibitem{Polak} S. C. Polak, Semidefinite programming bounds for
+constant-weight codes, \emph{IEEE Trans. Inform. Theory} \textbf{65}
+(2019) 28--38.
+\end{thebibliography}
+\end{document}
